@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;600;700;800&family=Macondo&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+}
+
+:root {
+  --text-color: #121212;
+  --text-color-light: #565656;
+  --bg-color: #fefefe;
+  --brand-color: #26B656;
+  --brand-color-secondary: #E8FDFF;
+  --url-color: #312fda;
+  --shadow-color: #393939;
+  --dark-green: #061F27;
+  --light-green: #94DBA0;
+  --light-green: #deffe3;
+  --red-color: #FFC2C2;
+  --yellow-color: #FDFFA9;
+  --greeen-color: #BFFFA9;
+  --white-01: #ffffff;
+  --black-01: #000000;
+  --grey-01: #505050;
+  font-size: 12px;
+  --brand-linear-color: linear-gradient(to right top, #26b656, #00b171, #00ab86, #00a395, #009b9c);
+}
+:root .switchDisplayModeBtn {
+  background: url("../imgs/light-mode.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.darkMode {
+  --text-color: #fefefe;
+  --text-color-light: #565656;
+  --bg-color: #1d2820;
+  --shadow-color: #393939;
+  --light-green: #061F27;
+  --dark-green: #deffe3;
+  --grey-01: #9d9d9d;
+  --url-color: rgb(118, 115, 255);
+}
+.darkMode .switchDisplayModeBtn {
+  background: url("../imgs/dark-mode.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  transition: all 0.25s ease-in-out;
+  box-shadow: inset 0 0 50vw 50vw var(--light-green);
+}
+body header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 1.2rem 4vw;
+  background-color: transparent;
+  border: 2px var(--brand-color-secondary) solid;
+  border-radius: 12px;
+  box-shadow: 0 0 0.5rem var(--shadow-color);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+body header::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  z-index: 99;
+}
+body header .switchDisplayModeBtn {
+  z-index: 101;
+  height: 60%;
+  width: 2.5rem;
+  border: none;
+  margin: 0rem 0.5rem;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+  border: solid 5px var(--dark-green);
+  border-radius: 2rem;
+  padding: 5rem 0rem;
+  box-shadow: 0 0 0.5rem var(--shadow-color);
+  background-color: var(--light-green);
+  color: var(--dark-green);
+}
+body main .imgContainer {
+  padding: 2rem;
+}
+body main .imgContainer img {
+  max-width: 200px;
+}
+body main h3 {
+  font-size: 1.2rem;
+  width: 90%;
+}
+body main form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  width: 90%;
+}
+body main form .inputContainer {
+  position: relative;
+  width: 95%;
+  margin: 1rem 0rem;
+}
+body main form .inputContainer label {
+  position: absolute;
+  font-weight: 700;
+  top: 50%;
+  left: 1rem;
+  background-color: var(--light-green);
+  padding: 0rem 0.5rem;
+  transform: translateY(-200%);
+  font-size: 1rem;
+}
+body main form .inputContainer input {
+  width: 90%;
+  font-size: 1.5rem;
+  outline: none;
+  border: 2px solid var(--dark-green);
+  color: var(--dark-green);
+  background: transparent;
+  border-radius: 12px;
+  padding: 1rem 5%;
+}
+body main form .forgotPasswordLink {
+  align-self: flex-end;
+  color: var(--grey-01);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+body main form .submitBtn {
+  width: 95%;
+  font-size: 1.5rem;
+  border: 2px solid var(--dark-green);
+  border-radius: 12px;
+  padding: 1rem 5%;
+  color: var(--dark-green);
+  background-color: transparent;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.25s ease-in-out;
+}
+body main form .submitBtn:hover {
+  background-color: var(--dark-green);
+  color: var(--light-green);
+}
+body main form .textContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: 1.2rem;
+}
+body main form .textContainer a {
+  padding: 0rem 0.5rem;
+  color: var(--url-color);
+}/*# sourceMappingURL=form.css.map */

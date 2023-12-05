@@ -1,0 +1,343 @@
+@use "main.scss";
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    @include main.dFlex();
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+
+    // ================================
+    // Navigation Bar 
+    // ================================   
+    header {
+        @include main.dFlex($fd: row, $j: space-between);
+
+        position: fixed; 
+        top: 0;
+        left: 0;
+        z-index: 100;
+
+        width: 90vw;
+        height: 3.5rem;
+        padding: 0.5rem 1vw;
+        margin: 1.2rem 4vw;
+        background-color: transparent;
+
+        border: 2px var(--brand-color-secondary) solid;
+        border-radius: 12px;
+
+        box-shadow: 0 0 0.5rem var(--shadow-color);
+
+        &::before {
+            content: ' ';
+            @include main.absCenter();
+            height: 100%;
+            width: 100%;
+            background-color: #e8fdff54;
+            // opacity: 0.2;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 99;
+        }
+
+        .leftContainer {
+
+
+            @include main.dFlex($fd: row);
+            height: 100%;
+            z-index: 101;
+
+            .logo {
+                height: 90%;
+            }
+
+            .companyName {
+                padding: 0rem 1rem;
+                color: var(--brand-color-secondary);
+                text-shadow: 0 0 0.5rem var(--black-01);
+            }
+        }
+
+        .rightContainer {
+            @include main.dFlex($fd: row);
+            height: 100%;
+            z-index: 101;
+
+            .navBar {
+                @include main.dFlex($fd: row);
+                height: 100%;
+
+                .switchDisplayModeBtn {
+                    height: 60%;
+                    width: 2.5rem;
+                    border: none;
+                    margin: 0rem 0.5rem;
+                    filter: drop-shadow(0 0 0.1rem var(--black-01));
+                }
+
+                .goToAppBtn {
+                    background-color: var(--brand-color);
+                    padding: 0.4rem 1rem;
+                    margin: 0rem 0.5rem;
+                    border-radius: 0.5rem;
+                    text-decoration: none;
+                    color: var(--white-01);
+                    font-weight: 800;
+                    transition: 0.25s ease-in-out;
+                    border: var(--brand-color) 2px solid;
+                    font-size: 1.2rem;
+
+
+                    &:hover {
+                        color: var(--brand-color);
+                        background-color: transparent;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    // ================================
+    // Footer
+    // ================================
+    footer {
+        @include main.dFlex($fd: row, $j: space-around, $a: start);
+        width: 100%;
+        padding: 4.5rem 0rem;
+        background-color: var(--black-01);
+        box-shadow: 0 0 1rem var(--shadow-color);
+
+        // To make sure these two colors wont change based on display mode
+        --dark-green: #061F27;
+        --light-green: #94DBA0;
+
+        .logoContainer {
+
+            .logo {
+                background-color: var(--brand-color-secondary);
+                border-radius: 100%;
+                border: 1rem solid var(--brand-color-secondary);
+                max-width: 180px
+            }
+        }
+
+        .listContainer {
+            @include main.dFlex($a: start);
+            color: var(--white-01);
+
+            .listTitle {
+                font-size: 2.2rem;
+            }
+
+            .listItem {
+                text-decoration: none;
+                transition: 0.25s ease-in-out;
+
+                color: var(--white-01);
+
+
+                &:hover {
+                    color: var(--light-green);
+                    text-shadow: 0 0 0.5rem var(--dark-green);
+                    text-decoration: underline;
+                }
+
+                @include main.dFlex($fd: row);
+
+                .listItemIcon {
+                    height: 1.5rem;
+                    margin-left: 0.2rem;
+                    filter: invert(1);
+                    -webkit-filter: invert(1);
+
+                }
+
+                .listItemText {
+                    font-size: 1.5rem;
+                    margin: 1rem;
+                }
+            }
+        }
+    }
+}
+
+section {
+    @include main.dFlex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+// ================================
+// Hero Section 
+// ================================
+.heroSection {
+    position: relative;
+
+    .bgImg {
+        @include main.absCenter();
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+
+
+        filter: brightness(0.5);
+    }
+
+    .textContainer {
+        @include main.dFlex($a: start);
+        z-index: 2;
+        color: var(--white-01);
+        font-size: 16px;
+        max-width: 500px;
+
+        h2 {
+            font-size: 5.5rem;
+            text-shadow: 0 0 1rem var(--shadow-color);
+        }
+
+        p {
+            margin: 1.5rem 0rem;
+            text-shadow: 0 0 1rem var(--shadow-color);
+        }
+
+        .goToAppBtn {
+            background-color: var(--brand-color);
+            padding: 0.45rem 1rem;
+            margin: 0rem 0.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: var(--white-01);
+            font-weight: 800;
+            transition: 0.25s ease-in-out;
+            border: var(--brand-color) 2px solid;
+
+            &:hover {
+                color: var(--brand-color);
+                background-color: #121212aa;
+            }
+        }
+
+    }
+}
+
+// ================================
+// About us Section 
+// ================================
+.aboutUsSection {
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    box-shadow: inset 0 0 2rem var(--shadow-color);
+
+    .textContainer {
+        @include main.dFlex($a: start);
+        padding: 10%;
+
+        h4 {
+            font-size: 4rem;
+            text-decoration: underline;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+
+            text-align: justify;
+        }
+    }
+}
+
+// ================================
+// Features Section 
+// ================================
+.featuresSection {
+    max-width: 900px;
+
+    .flexContainer {
+        @include main.dFlex($fd: row);
+        margin: 5rem 0rem;
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .imgContainer {
+            @include main.dFlex();
+            width: 40%;
+
+            img {
+                max-width: 250px;
+            }
+        }
+
+        .textContainer {
+            width: 50%;
+            padding: 5%;
+
+            p {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+        }
+    }
+}
+
+// ================================
+// Slogan Section 
+// ================================
+.sloganSection {
+    min-height: auto;
+    padding: 10rem 0rem;
+
+    h5 {
+        position: relative;
+        font-size: 3rem;
+        text-align: center;
+        padding: 0rem 7.5%;
+
+
+    }
+}
+
+// for small device
+@media (max-width:580px) {
+    .featuresSection {
+        .flexContainer {
+            flex-direction: column;
+            margin: 2.5rem 0rem;
+
+            &:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .imgContainer,
+            .textContainer {
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    body {
+        footer {
+            min-height: 600px;
+            flex-direction: column;
+            align-items: center;
+
+            .listContainer {
+                width: 80%;
+                min-width: 200px;
+            }
+        }
+    }
+}

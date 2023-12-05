@@ -1,0 +1,355 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;600;700;800&family=Macondo&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+}
+
+:root {
+  --text-color: #121212;
+  --text-color-light: #565656;
+  --bg-color: #fefefe;
+  --brand-color: #26B656;
+  --brand-color-secondary: #E8FDFF;
+  --url-color: #312fda;
+  --shadow-color: #393939;
+  --dark-green: #061F27;
+  --light-green: #94DBA0;
+  --light-green: #deffe3;
+  --red-color: #FFC2C2;
+  --yellow-color: #FDFFA9;
+  --greeen-color: #BFFFA9;
+  --white-01: #ffffff;
+  --black-01: #000000;
+  --grey-01: #505050;
+  font-size: 12px;
+  --brand-linear-color: linear-gradient(to right top, #26b656, #00b171, #00ab86, #00a395, #009b9c);
+}
+:root .switchDisplayModeBtn {
+  background: url("../imgs/light-mode.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.darkMode {
+  --text-color: #fefefe;
+  --text-color-light: #565656;
+  --bg-color: #1d2820;
+  --shadow-color: #393939;
+  --light-green: #061F27;
+  --dark-green: #deffe3;
+  --grey-01: #9d9d9d;
+  --url-color: rgb(118, 115, 255);
+}
+.darkMode .switchDisplayModeBtn {
+  background: url("../imgs/dark-mode.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+body header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 90vw;
+  height: 3.5rem;
+  padding: 0.5rem 1vw;
+  margin: 1.2rem 4vw;
+  background-color: transparent;
+  border: 2px var(--brand-color-secondary) solid;
+  border-radius: 12px;
+  box-shadow: 0 0 0.5rem var(--shadow-color);
+}
+body header::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background-color: rgba(232, 253, 255, 0.3294117647);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 99;
+}
+body header .leftContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 101;
+}
+body header .leftContainer .logo {
+  height: 90%;
+}
+body header .leftContainer .companyName {
+  padding: 0rem 1rem;
+  color: var(--brand-color-secondary);
+  text-shadow: 0 0 0.5rem var(--black-01);
+}
+body header .rightContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 101;
+}
+body header .rightContainer .navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+body header .rightContainer .navBar .switchDisplayModeBtn {
+  height: 60%;
+  width: 2.5rem;
+  border: none;
+  margin: 0rem 0.5rem;
+  filter: drop-shadow(0 0 0.1rem var(--black-01));
+}
+body header .rightContainer .navBar .goToAppBtn {
+  background-color: var(--brand-color);
+  padding: 0.4rem 1rem;
+  margin: 0rem 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--white-01);
+  font-weight: 800;
+  transition: 0.25s ease-in-out;
+  border: var(--brand-color) 2px solid;
+  font-size: 1.2rem;
+}
+body header .rightContainer .navBar .goToAppBtn:hover {
+  color: var(--brand-color);
+  background-color: transparent;
+}
+body footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  padding: 4.5rem 0rem;
+  background-color: var(--black-01);
+  box-shadow: 0 0 1rem var(--shadow-color);
+  --dark-green: #061F27;
+  --light-green: #94DBA0;
+}
+body footer .logoContainer .logo {
+  background-color: var(--brand-color-secondary);
+  border-radius: 100%;
+  border: 1rem solid var(--brand-color-secondary);
+  max-width: 180px;
+}
+body footer .listContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  color: var(--white-01);
+}
+body footer .listContainer .listTitle {
+  font-size: 2.2rem;
+}
+body footer .listContainer .listItem {
+  text-decoration: none;
+  transition: 0.25s ease-in-out;
+  color: var(--white-01);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body footer .listContainer .listItem:hover {
+  color: var(--light-green);
+  text-shadow: 0 0 0.5rem var(--dark-green);
+  text-decoration: underline;
+}
+body footer .listContainer .listItem .listItemIcon {
+  height: 1.5rem;
+  margin-left: 0.2rem;
+  filter: invert(1);
+  -webkit-filter: invert(1);
+}
+body footer .listContainer .listItem .listItemText {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.heroSection {
+  position: relative;
+}
+.heroSection .bgImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  filter: brightness(0.5);
+}
+.heroSection .textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  z-index: 2;
+  color: var(--white-01);
+  font-size: 16px;
+  max-width: 500px;
+}
+.heroSection .textContainer h2 {
+  font-size: 5.5rem;
+  text-shadow: 0 0 1rem var(--shadow-color);
+}
+.heroSection .textContainer p {
+  margin: 1.5rem 0rem;
+  text-shadow: 0 0 1rem var(--shadow-color);
+}
+.heroSection .textContainer .goToAppBtn {
+  background-color: var(--brand-color);
+  padding: 0.45rem 1rem;
+  margin: 0rem 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--white-01);
+  font-weight: 800;
+  transition: 0.25s ease-in-out;
+  border: var(--brand-color) 2px solid;
+}
+.heroSection .textContainer .goToAppBtn:hover {
+  color: var(--brand-color);
+  background-color: rgba(18, 18, 18, 0.6666666667);
+}
+
+.aboutUsSection {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+  box-shadow: inset 0 0 2rem var(--shadow-color);
+}
+.aboutUsSection .textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 10%;
+}
+.aboutUsSection .textContainer h4 {
+  font-size: 4rem;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+.aboutUsSection .textContainer p {
+  font-size: 1.5rem;
+  text-align: justify;
+}
+
+.featuresSection {
+  max-width: 900px;
+}
+.featuresSection .flexContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0rem;
+}
+.featuresSection .flexContainer:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.featuresSection .flexContainer .imgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+.featuresSection .flexContainer .imgContainer img {
+  max-width: 250px;
+}
+.featuresSection .flexContainer .textContainer {
+  width: 50%;
+  padding: 5%;
+}
+.featuresSection .flexContainer .textContainer p {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.sloganSection {
+  min-height: auto;
+  padding: 10rem 0rem;
+}
+.sloganSection h5 {
+  position: relative;
+  font-size: 3rem;
+  text-align: center;
+  padding: 0rem 7.5%;
+}
+
+@media (max-width: 580px) {
+  .featuresSection .flexContainer {
+    flex-direction: column;
+    margin: 2.5rem 0rem;
+  }
+  .featuresSection .flexContainer:nth-child(even) {
+    flex-direction: column;
+  }
+  .featuresSection .flexContainer .imgContainer,
+  .featuresSection .flexContainer .textContainer {
+    width: 90%;
+  }
+}
+@media (max-width: 620px) {
+  body footer {
+    min-height: 600px;
+    flex-direction: column;
+    align-items: center;
+  }
+  body footer .listContainer {
+    width: 80%;
+    min-width: 200px;
+  }
+}/*# sourceMappingURL=index.css.map */
