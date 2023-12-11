@@ -1,14 +1,17 @@
+<?php
+    // TODO: Send reset password email. Email validation
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClearWay: Login</title>
-    <link rel="icon" type="image/x-icon" href="assets/imgs/logo.png">
+    <title>ClearWay: Forget Password</title>
+    <link rel="icon" type="image/x-icon" href="../assets/imgs/logo.png">
 
     <!-- CSS Styling -->
-    <link rel="stylesheet" href="assets/style/form.css">
+    <link rel="stylesheet" href="../assets/style/form.css">
 </head>
 
 <body>
@@ -24,11 +27,11 @@
             </div>
             <button class="submitBtn" type="submit">SUBMIT</button>
             <div class="textContainer">
-                <p>Dont have an account? </p>
-                <a href="Login.php"> Login</a>
+                <p>Already have an account? </p>
+                <a href="login.php"> Login</a>
             </div>
         </form>
-    <script src="assets/script/displayMode.js"></script>
+    <script src="../assets/script/displayMode.js"></script>
 
     </main>
 </body>

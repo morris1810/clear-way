@@ -18,9 +18,10 @@
   --light-green: #94DBA0;
   --light-green: #deffe3;
   --error-color: #ff0000;
-  --red-color: #FFC2C2;
-  --yellow-color: #FDFFA9;
-  --greeen-color: #BFFFA9;
+  --light-grey-color: #aaaaaa;
+  --red-color: #ff3a3a;
+  --yellow-color: #fff53a;
+  --greeen-color: #51ff3a;
   --white-01: #ffffff;
   --black-01: #000000;
   --grey-01: #505050;
@@ -206,135 +207,218 @@ header .rightContainer .navBar .goToAppBtn:hover {
   line-height: 5rem;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   min-height: 100vh;
-  width: 100%;
+  height: 100%;
   overflow-x: hidden;
+  width: 100%;
+  color: var(--text-color);
   background-color: var(--bg-color);
   transition: all 0.25s ease-in-out;
-  box-shadow: inset 0 0 50vw 50vw var(--light-green);
 }
 body header {
+  position: relative;
+  border: 2px var(--text-color) solid;
+}
+body header::before {
+  display: none;
+}
+body header .leftContainer .companyName {
+  color: var(--text-color);
+  text-shadow: none;
+}
+body header .rightContainer .navBar .switchDisplayModeBtn {
+  filter: none;
+}
+body header .rightContainer .navBar .profileBtn {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  left: auto;
-  right: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  border: 2px var(--dark-green) solid;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  padding: 0.5rem;
+  background-color: var(--white-01);
+  border-radius: 100%;
+  text-decoration: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0rem 0.5rem;
+  border: var(--black-01) 2px solid;
+  box-shadow: 0 0 0.1rem var(--shadow-color);
 }
-body header .switchDisplayModeBtn {
-  z-index: 101;
-  height: 60%;
-  width: 60%;
-  border: none;
+body header .rightContainer .navBar .profileBtn img {
+  height: 90%;
 }
 body main {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  max-width: 400px;
-  border: solid 5px var(--dark-green);
-  border-radius: 2rem;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: start;
+  height: 100%;
+  width: 100%;
   padding: 5rem 0rem;
-  box-shadow: 0 0 0.5rem var(--shadow-color);
-  background-color: var(--light-green);
-  color: var(--dark-green);
-  margin: 1rem 0rem;
 }
-body main .imgContainer {
-  padding: 2rem;
+body main .tableContainer {
+  height: calc(100vh - 3.5rem - 4px - 3.4rem - 10rem - 8px);
+  overflow: auto;
+  width: 42.5%;
 }
-body main .imgContainer img {
-  max-width: 200px;
-}
-body main h3 {
-  font-size: 1.2rem;
-  width: 90%;
-}
-body main form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  width: 90%;
-}
-body main form .inputContainer {
+body main .tableContainer .dataTable {
   position: relative;
-  width: 95%;
-  margin: 1rem 0rem;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 1rem;
 }
-body main form .inputContainer label {
-  position: absolute;
-  font-weight: 700;
-  top: 50%;
-  left: 1rem;
-  background-color: var(--light-green);
-  padding: 0rem 0.5rem;
-  transform: translateY(-200%);
-  font-size: 1rem;
-}
-body main form .inputContainer input {
-  width: 90%;
-  font-size: 1.5rem;
-  outline: none;
-  border: 2px solid var(--dark-green);
-  color: var(--dark-green);
-  background: transparent;
-  border-radius: 12px;
-  padding: 1rem 5%;
-}
-body main form .forgotPasswordLink {
-  align-self: flex-end;
-  color: var(--grey-01);
+body main .tableContainer .dataTable .dataHeaderRow {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  background-color: var(--bg-color);
+  width: 100%;
+  border-bottom: 2px solid var(--dark-green);
 }
-body main form .submitBtn {
-  width: 95%;
-  font-size: 1.5rem;
-  border: 2px solid var(--dark-green);
-  border-radius: 12px;
-  padding: 1rem 5%;
-  color: var(--dark-green);
-  background-color: transparent;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 1rem;
+body main .tableContainer .dataTable .dataHeaderRow .dataHeader {
+  text-align: left;
+  font-weight: 300;
+  padding: 1rem;
+  color: var(--grey-01);
+  background-color: var(--bg-color);
   transition: all 0.25s ease-in-out;
 }
-body main form .submitBtn:focus body main form .submitBtn:hover {
-  background-color: var(--dark-green);
-  color: var(--light-green);
-}
-body main form .textContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+body main .tableContainer .dataTable .dataHeaderRow .dataHeader:nth-child(2) {
   text-align: center;
-  font-size: 1.2rem;
 }
-body main form .textContainer a {
-  padding: 0rem 0.5rem;
-  color: var(--url-color);
+body main .tableContainer .dataTable .dataContentRow {
+  font-size: 1.5rem;
+  border-bottom: 2px dotted var(--dark-green);
 }
-body .displayMessageContainer {
+body main .tableContainer .dataTable .dataContentRow .dataContent {
+  text-align: left;
+  font-weight: 500;
+  padding: 1rem;
+  color: var(--text-color);
+}
+body main .tableContainer .dataTable .dataContentRow .dataContent:nth-child(2) {
+  text-align: center;
+}
+body main .tableContainer .dataTable .dataContentRow .status {
+  position: relative;
+  width: 3rem;
+}
+body main .tableContainer .dataTable .dataContentRow .status::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 1rem;
+  width: 1rem;
+  border: solid 2px var(--text-color);
+  background-color: var(--light-grey-color);
+  border-radius: 100%;
+}
+body main .tableContainer .dataTable .dataContentRow .status.statusLight::after {
+  background-color: var(--green-color);
+}
+body main .tableContainer .dataTable .dataContentRow .status.statusMedium::after {
+  background-color: var(--yellow-color);
+}
+body main .tableContainer .dataTable .dataContentRow .status.statusHeavy::after {
+  background-color: var(--red-color);
+}
+body main #map {
+  width: 42.5%;
+  min-height: calc(100vh - 3.5rem - 4px - 3.4rem - 10rem - 8px);
+  height: 100%;
+  border: solid 4px var(--dark-green);
+  border-radius: 1rem;
+}
+body .btnContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 95%;
+  padding: 0.5rem 0rem;
+}
+
+@media (max-width: 720px) {
+  body main {
+    padding: 1rem 0rem;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  body main .tableContainer {
+    height: auto;
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+  body main #map {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+}
+.postPopUp {
+  z-index: 150;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}/*# sourceMappingURL=form.css.map */
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.postPopUp .newPostForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  max-width: 360px;
+  background-color: var(--bg-color);
+  font-size: 1.5rem;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.postPopUp .newPostForm input {
+  font-size: 1.5rem;
+  width: calc(100% - 2rem - 4px);
+  border: solid 2px var(--text-color);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0rem;
+}
+.postPopUp .newPostForm .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.postPopUp .newPostForm .row input {
+  width: 40%;
+}
+.postPopUp .newPostForm .radioConatiner {
+  position: relative;
+}
+.postPopUp .newPostForm .radioConatiner input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0px;
+}
+.postPopUp .newPostForm .radioConatiner #trafficJamLow:checked + #trafficJamLowLabel,
+.postPopUp .newPostForm .radioConatiner #trafficJamMedium:checked + #trafficJamMediumLabel,
+.postPopUp .newPostForm .radioConatiner #trafficJamHigh:checked + #trafficJamHighLabel {
+  background: #000;
+}/*# sourceMappingURL=app.css.map */

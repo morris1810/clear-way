@@ -1,7 +1,6 @@
 // Font Family: Jet Brain Mono
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;600;700;800&family=Macondo&display=swap');
 
-
 * {
     padding: 0;
     margin: 0;
@@ -25,7 +24,7 @@
 :root {
     --text-color: #121212;
     --text-color-light: #565656;
-    --bg-color: #fefefe;
+    --bg-color: #fefefe; 
     --brand-color: #26B656;
     --brand-color-secondary: #E8FDFF;
     --url-color: #312fda;
@@ -33,13 +32,16 @@
 
     // https://pigment.shapefactory.co/?a=061F27&b=94DBA0
     --dark-green: #061F27;
+    --dark-green-2: #00636d;
     --light-green: #94DBA0;
     --light-green: #deffe3;
 
+    --error-color: #ff0000;
 
-    --red-color: #FFC2C2;
-    --yellow-color: #FDFFA9;
-    --greeen-color: #BFFFA9;
+    --light-grey-color: #aaaaaa;
+    --red-color: #ff3a3a;
+    --yellow-color: #fff53a;
+    --greeen-color: #51ff3a;
 
     --white-01: #ffffff;
     --black-01: #000000;
@@ -54,7 +56,7 @@
         background: url("../imgs/light-mode.png");
         background-size: contain;
         background-position: center;
-        background-repeat: no-repeat; 
+        background-repeat: no-repeat;
         cursor: pointer;
 
     }
@@ -68,7 +70,6 @@
     --shadow-color: #393939;
 
     --light-green: #061F27;
-    // --dark-green: #94DBA0;
     --dark-green: #deffe3;
 
     --grey-01: #9d9d9d;
@@ -85,4 +86,160 @@
         background-repeat: no-repeat;
         cursor: pointer;
     }
+ 
+    header {
+        border-color: var(--dark-green-2); 
+        &::before {
+            background-color: #00636d54;
+        }
+    }
+}
+
+
+// ================================
+// Navigation Bar 
+// ================================   
+header {
+    @include dFlex($fd: row, $j: space-between);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    width: 90vw;
+    height: 3.5rem;
+    padding: 0.5rem 1vw;
+    margin: 1.2rem 4vw;
+    background-color: transparent;
+
+    border: 2px var(--brand-color-secondary) solid;
+    border-radius: 12px;
+
+    box-shadow: 0 0 0.5rem var(--shadow-color);
+
+    &::before {
+        content: ' ';
+        @include absCenter();
+        height: 100%;
+        width: 100%;
+        background-color: #e8fdff54;
+        // opacity: 0.2;
+        border-radius: 12px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 99;
+    }
+
+    .leftContainer {
+
+
+        @include dFlex($fd: row);
+        height: 100%;
+        text-decoration: none;
+        z-index: 101;
+
+        .logo {
+            height: 90%;
+        }
+
+        .companyName {
+            padding: 0rem 1rem;
+            color: var(--brand-color-secondary);
+            text-shadow: 0 0 0.5rem var(--black-01);
+            text-decoration: none;
+        }
+    }
+
+    .rightContainer {
+        @include dFlex($fd: row);
+        height: 100%;
+        z-index: 101;
+
+        .navBar {
+
+            @include dFlex($fd: row);
+            height: 100%;
+
+            .switchDisplayModeBtn {
+                height: 60%;
+                width: 2.5rem;
+                border: none;
+                margin: 0rem 0.5rem;
+                filter: drop-shadow(0 0 0.1rem var(--black-01));
+            }
+
+            .goToAppBtn {
+                background-color: var(--brand-color);
+                padding: 0.4rem 1rem;
+                margin: 0rem 0.5rem;
+                border-radius: 0.5rem;
+                text-decoration: none;
+                color: var(--white-01);
+                font-weight: 800;
+                transition: 0.25s ease-in-out;
+                border: var(--brand-color) 2px solid;
+                font-size: 1.2rem;
+
+
+                &:hover {
+                    color: var(--brand-color);
+                    background-color: transparent;
+                }
+            }
+        } 
+
+    }
+
+}
+
+.postBtn {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 100%;
+    background-color: var(--dark-green);
+    color: var(--light-green);
+    border: 2px solid var(--light-green);
+    outline: none;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 600;
+    transition: 0.25s;
+    &:hover {
+        background-color: var(--light-green);
+        color: var(--dark-green);
+        border: 2px solid var(--dark-green);
+    }
+}
+
+.postPopUp {
+    z-index: 150;
+    @include absCenter();
+    @include dFlex();
+    position: fixed;
+    height: 100vh; 
+    width: 100vw;
+    background-color: #00000066;
+    .newPostForm {
+        @include dFlex();
+        max-width: 400px;
+        background-color: var(--bg-color);
+        input {
+            width: 90%;
+        }
+        .row {
+            input {
+                width: 42.5%;
+            }
+        }
+    }
+}
+
+.errorText {
+    color: var(--error-color);
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 5rem;
 }

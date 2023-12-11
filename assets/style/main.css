@@ -14,11 +14,14 @@
   --url-color: #312fda;
   --shadow-color: #393939;
   --dark-green: #061F27;
+  --dark-green-2: #00636d;
   --light-green: #94DBA0;
   --light-green: #deffe3;
-  --red-color: #FFC2C2;
-  --yellow-color: #FDFFA9;
-  --greeen-color: #BFFFA9;
+  --error-color: #ff0000;
+  --light-grey-color: #aaaaaa;
+  --red-color: #ff3a3a;
+  --yellow-color: #fff53a;
+  --greeen-color: #51ff3a;
   --white-01: #ffffff;
   --black-01: #000000;
   --grey-01: #505050;
@@ -49,4 +52,157 @@
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+.darkMode header {
+  border-color: var(--dark-green-2);
+}
+.darkMode header::before {
+  background-color: rgba(0, 99, 109, 0.3294117647);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 90vw;
+  height: 3.5rem;
+  padding: 0.5rem 1vw;
+  margin: 1.2rem 4vw;
+  background-color: transparent;
+  border: 2px var(--brand-color-secondary) solid;
+  border-radius: 12px;
+  box-shadow: 0 0 0.5rem var(--shadow-color);
+}
+header::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background-color: rgba(232, 253, 255, 0.3294117647);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 99;
+}
+header .leftContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  z-index: 101;
+}
+header .leftContainer .logo {
+  height: 90%;
+}
+header .leftContainer .companyName {
+  padding: 0rem 1rem;
+  color: var(--brand-color-secondary);
+  text-shadow: 0 0 0.5rem var(--black-01);
+  text-decoration: none;
+}
+header .rightContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 101;
+}
+header .rightContainer .navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+header .rightContainer .navBar .switchDisplayModeBtn {
+  height: 60%;
+  width: 2.5rem;
+  border: none;
+  margin: 0rem 0.5rem;
+  filter: drop-shadow(0 0 0.1rem var(--black-01));
+}
+header .rightContainer .navBar .goToAppBtn {
+  background-color: var(--brand-color);
+  padding: 0.4rem 1rem;
+  margin: 0rem 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--white-01);
+  font-weight: 800;
+  transition: 0.25s ease-in-out;
+  border: var(--brand-color) 2px solid;
+  font-size: 1.2rem;
+}
+header .rightContainer .navBar .goToAppBtn:hover {
+  color: var(--brand-color);
+  background-color: transparent;
+}
+
+.postBtn {
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 100%;
+  background-color: var(--dark-green);
+  color: var(--light-green);
+  border: 2px solid var(--light-green);
+  outline: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: 0.25s;
+}
+.postBtn:hover {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+  border: 2px solid var(--dark-green);
+}
+
+.postPopUp {
+  z-index: 150;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.postPopUp .newPostForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  background-color: var(--bg-color);
+}
+.postPopUp .newPostForm input {
+  width: 90%;
+}
+.postPopUp .newPostForm .row input {
+  width: 42.5%;
+}
+
+.errorText {
+  color: var(--error-color);
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 5rem;
 }/*# sourceMappingURL=main.css.map */

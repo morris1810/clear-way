@@ -7,107 +7,13 @@ html {
 body {
     @include main.dFlex();
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: hidden; 
     width: 100%;
-    color: var(--text-color);
+    color: var(--text-color); 
     background-color: var(--bg-color);
 
     // ================================
-    // Navigation Bar 
-    // ================================   
-    header {
-        @include main.dFlex($fd: row, $j: space-between);
-
-        position: fixed; 
-        top: 0;
-        left: 0;
-        z-index: 100;
-
-        width: 90vw;
-        height: 3.5rem;
-        padding: 0.5rem 1vw;
-        margin: 1.2rem 4vw;
-        background-color: transparent;
-
-        border: 2px var(--brand-color-secondary) solid;
-        border-radius: 12px;
-
-        box-shadow: 0 0 0.5rem var(--shadow-color);
-
-        &::before {
-            content: ' ';
-            @include main.absCenter();
-            height: 100%;
-            width: 100%;
-            background-color: #e8fdff54;
-            // opacity: 0.2;
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            z-index: 99;
-        }
-
-        .leftContainer {
-
-
-            @include main.dFlex($fd: row);
-            height: 100%;
-            z-index: 101;
-
-            .logo {
-                height: 90%;
-            }
-
-            .companyName {
-                padding: 0rem 1rem;
-                color: var(--brand-color-secondary);
-                text-shadow: 0 0 0.5rem var(--black-01);
-            }
-        }
-
-        .rightContainer {
-            @include main.dFlex($fd: row);
-            height: 100%;
-            z-index: 101;
-
-            .navBar {
-                @include main.dFlex($fd: row);
-                height: 100%;
-
-                .switchDisplayModeBtn {
-                    height: 60%;
-                    width: 2.5rem;
-                    border: none;
-                    margin: 0rem 0.5rem;
-                    filter: drop-shadow(0 0 0.1rem var(--black-01));
-                }
-
-                .goToAppBtn {
-                    background-color: var(--brand-color);
-                    padding: 0.4rem 1rem;
-                    margin: 0rem 0.5rem;
-                    border-radius: 0.5rem;
-                    text-decoration: none;
-                    color: var(--white-01);
-                    font-weight: 800;
-                    transition: 0.25s ease-in-out;
-                    border: var(--brand-color) 2px solid;
-                    font-size: 1.2rem;
-
-
-                    &:hover {
-                        color: var(--brand-color);
-                        background-color: transparent;
-                    }
-                }
-            }
-
-        }
-
-    }
-
-    // ================================
-    // Footer
+    // Footer 
     // ================================
     footer {
         @include main.dFlex($fd: row, $j: space-around, $a: start);
@@ -215,14 +121,14 @@ section {
             padding: 0.45rem 1rem;
             margin: 0rem 0.5rem;
             border-radius: 0.5rem;
-            text-decoration: none;
+            text-decoration: none; 
             color: var(--white-01);
             font-weight: 800;
             transition: 0.25s ease-in-out;
             border: var(--brand-color) 2px solid;
 
             &:hover {
-                color: var(--brand-color);
+                color: var(--brand-color); 
                 background-color: #121212aa;
             }
         }

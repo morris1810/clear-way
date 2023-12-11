@@ -1,7 +1,6 @@
 
 window.onload = (e) => {
-
-    
+        
     // Check default display mode
     switch (localStorage.getItem("displayMode")) {
         case "light":
