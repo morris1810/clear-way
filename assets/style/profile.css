@@ -258,17 +258,17 @@ body header .rightContainer .navBar .mapBtn img {
 body main {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: start;
   height: 100%;
-  width: 100%;
+  width: calc(92vw - 16px);
   padding: 5rem 0rem;
 }
 body main .tableContainer {
   position: relative;
   height: calc(100vh - 3.5rem - 4px - 3.4rem - 10rem - 8px - 4rem);
   overflow: auto;
-  width: calc(42.5% - 4rem - 8px);
+  width: calc(48% - 4rem - 8px);
   border: solid 4px var(--dark-green);
   border-radius: 1rem;
   padding: 2rem;
@@ -349,11 +349,11 @@ body main .personalInfoContainer {
   justify-content: space-between;
   align-items: start;
   position: relative;
-  width: calc(42.5% - 4rem - 8px);
-  height: calc(100vh - 3.5rem - 4px - 3.4rem - 10rem - 8px - 2rem);
+  width: calc(48% - 4rem - 8px);
+  height: calc(100vh - 3.5rem - 4px - 3.4rem - 10rem - 8px - 4rem);
   border: solid 4px var(--dark-green);
   border-radius: 1rem;
-  padding: 1rem 2rem;
+  padding: 2rem;
 }
 body main .personalInfoContainer .topContainer {
   width: 100%;
@@ -419,20 +419,20 @@ body main .personalInfoContainer .bottomContainer .buttonContainer .logoutBtn:ho
 
 @media (max-width: 720px) {
   body main {
-    padding: 1rem 0rem;
     flex-direction: column;
     align-items: center;
+    padding: 1rem 0rem;
   }
+  body main .personalInfoContainer,
   body main .tableContainer {
+    width: calc(100% - 4rem);
     height: auto;
-    width: 85%;
     margin-bottom: 2rem;
   }
-  body main .personalInfoContainer {
-    width: 85%;
-    height: auto;
-    min-width: none;
-    margin-bottom: 2rem;
+  body main .tableContainer .btnContainer {
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
   }
 }
 .postPopUp {
