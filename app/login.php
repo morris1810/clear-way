@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-$page_title = 'Login';
 $error_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -50,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header("Location: Admin_Page.php");
                 } else {
                     // Redirect the user to a login page if not an admin:
-                    header("Location: Profile.php");
+                    header("Location: index.php");
                 }
                 exit();
             } else {

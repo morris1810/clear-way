@@ -9,7 +9,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden; 
     width: 100%;
-    color: var(--text-color); 
+    color: var(--text-color);
     background-color: var(--bg-color);
 
     // ================================
@@ -121,14 +121,14 @@ section {
             padding: 0.45rem 1rem;
             margin: 0rem 0.5rem;
             border-radius: 0.5rem;
-            text-decoration: none; 
+            text-decoration: none;
             color: var(--white-01);
             font-weight: 800;
             transition: 0.25s ease-in-out;
             border: var(--brand-color) 2px solid;
 
             &:hover {
-                color: var(--brand-color); 
+                color: var(--brand-color);
                 background-color: #121212aa;
             }
         }

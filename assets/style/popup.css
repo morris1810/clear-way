@@ -218,159 +218,170 @@ header .rightContainer .navBar .goToAppBtn:hover {
   background-color: rgba(0, 99, 109, 0.3294117647);
 }
 
-html {
-  overflow-x: hidden;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  min-height: 100vh;
-  height: 100%;
-  overflow-x: hidden;
-  width: 100%;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  transition: all 0.25s ease-in-out;
-}
-body header {
-  position: relative;
-  border: 2px var(--text-color) solid;
-}
-body header::before {
-  display: none;
-}
-body header .leftContainer .companyName {
-  color: var(--text-color);
-  text-shadow: none;
-}
-body header .rightContainer .navBar .switchDisplayModeBtn {
-  filter: none;
-}
-body header .rightContainer .navBar .profileBtn {
+.newPostPopUp {
+  z-index: 150;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--white-01);
-  border-radius: 100%;
-  text-decoration: none;
-  width: 2.4rem;
-  height: 2.4rem;
-  margin: 0rem 0.5rem;
-  border: var(--black-01) 2px solid;
-  box-shadow: 0 0 0.1rem var(--shadow-color);
-}
-body header .rightContainer .navBar .profileBtn img {
-  height: 90%;
-}
-body main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: start;
-  height: 100%;
-  width: 100%;
-  padding: 5rem 0rem;
-}
-body main .tableContainer {
-  height: calc(100vh - 3.5rem - 4px - 3.4rem - 10rem - 8px);
-  overflow: auto;
-  width: 42.5%;
-}
-body main .tableContainer .dataTable {
-  position: relative;
-  width: 100%;
-  border-collapse: collapse;
-  border-radius: 1rem;
-}
-body main .tableContainer .dataTable .dataHeaderRow {
-  font-size: 1.2rem;
-  background-color: var(--bg-color);
-  width: 100%;
-  border-bottom: 2px solid var(--dark-green);
-}
-body main .tableContainer .dataTable .dataHeaderRow .dataHeader {
-  text-align: left;
-  font-weight: 300;
-  padding: 1rem;
-  color: var(--grey-01);
-  background-color: var(--bg-color);
-  transition: all 0.25s ease-in-out;
-}
-body main .tableContainer .dataTable .dataHeaderRow .dataHeader:nth-child(3), body main .tableContainer .dataTable .dataHeaderRow .dataHeader:nth-child(2) {
-  text-align: center;
-}
-body main .tableContainer .dataTable .dataContentRow {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
   font-size: 1.5rem;
-  border-bottom: 2px dotted var(--dark-green);
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: scroll;
 }
-body main .tableContainer .dataTable .dataContentRow .dataContent {
-  text-align: left;
-  font-weight: 500;
-  padding: 1rem;
+.newPostPopUp .newPostForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  max-width: 360px;
+  background-color: var(--bg-color);
+  font-size: 1.5rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.25rem var(--shadow-color);
+}
+.newPostPopUp .newPostForm .closeBtn {
+  height: 2rem;
+  align-self: flex-end;
+}
+.newPostPopUp .newPostForm .closeBtn img {
+  height: 100%;
+}
+.newPostPopUp .newPostForm input,
+.newPostPopUp .newPostForm select {
+  font-size: 1.5rem;
+  width: calc(100% - 2rem - 4px);
+  border: solid 2px var(--text-color);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0rem;
+  background-color: transparent;
   color: var(--text-color);
 }
-body main .tableContainer .dataTable .dataContentRow .dataContent:nth-child(3), body main .tableContainer .dataTable .dataContentRow .dataContent:nth-child(2) {
-  text-align: center;
+.newPostPopUp .newPostForm .placeholderText {
+  color: #757575;
 }
-body main .tableContainer .dataTable .dataContentRow .status {
+.newPostPopUp .newPostForm select {
   position: relative;
-  width: 3rem;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--bg-color);
 }
-body main .tableContainer .dataTable .dataContentRow .status::after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 1rem;
-  width: 1rem;
-  border: solid 2px var(--text-color);
-  background-color: var(--light-grey-color);
-  border-radius: 100%;
+.newPostPopUp .newPostForm select:has(option:first-child:checked) {
+  background-color: transparent;
+  color: #757575;
 }
-body main .tableContainer .dataTable .dataContentRow .status.statusLight::after {
+.newPostPopUp .newPostForm .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.newPostPopUp .newPostForm .row input {
+  width: 40%;
+}
+.newPostPopUp .newPostForm .row select {
+  width: 45%;
+}
+.newPostPopUp .newPostForm .radioConatiner {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: var(--text-color) 2px solid;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 1rem 0rem;
+}
+.newPostPopUp .newPostForm .radioConatiner input {
+  display: none;
+}
+.newPostPopUp .newPostForm .radioConatiner label {
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem 0rem;
+  cursor: pointer;
+}
+.newPostPopUp .newPostForm .radioConatiner #trafficJamLow:hover + #trafficJamLowLabel {
+  background-color: var(--grey-02);
+  font-weight: 800;
+}
+.newPostPopUp .newPostForm .radioConatiner #trafficJamLow:checked + #trafficJamLowLabel {
   background-color: var(--green-color);
+  font-weight: 800;
 }
-body main .tableContainer .dataTable .dataContentRow .status.statusMedium::after {
+.newPostPopUp .newPostForm .radioConatiner #trafficJamMedium:hover + #trafficJamMediumLabel {
+  background-color: var(--grey-02);
+  font-weight: 800;
+}
+.newPostPopUp .newPostForm .radioConatiner #trafficJamMedium:checked + #trafficJamMediumLabel {
   background-color: var(--yellow-color);
+  font-weight: 800;
 }
-body main .tableContainer .dataTable .dataContentRow .status.statusHeavy::after {
+.newPostPopUp .newPostForm .radioConatiner #trafficJamHigh:hover + #trafficJamHighLabel {
+  background-color: var(--grey-02);
+  font-weight: 800;
+}
+.newPostPopUp .newPostForm .radioConatiner #trafficJamHigh:checked + #trafficJamHighLabel {
   background-color: var(--red-color);
+  font-weight: 800;
 }
-body main #map {
-  width: 42.5%;
-  min-height: calc(100vh - 3.5rem - 4px - 3.4rem - 10rem - 8px);
-  height: 100%;
-  border: solid 4px var(--dark-green);
+.newPostPopUp .newPostForm .dateContainer label {
+  width: auto;
+}
+.newPostPopUp .newPostForm .dateContainer .readonly {
+  display: none;
+  border: none;
+  width: 100%;
+  outline: none;
+  pointer-events: none;
+}
+.newPostPopUp .newPostForm .dateContainer p {
+  border: none;
+  width: 100%;
+  padding-left: 1rem;
+  outline: none;
+  pointer-events: none;
+}
+.newPostPopUp .newPostForm .submitBtn {
+  font-size: 1.5rem;
+  width: 100%;
+  border: solid 2px var(--text-color);
+  background-color: var(--grey-02);
+  color: var(--text-color);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.newPostPopUp .newPostForm .submitBtn:hover {
+  background-color: var(--brand-color);
+  color: var(--white-01);
+}
+.newPostPopUp .displayMessageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 1rem;
 }
-body .btnContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: fixed;
-  top: 95%;
-  padding: 0.5rem 0rem;
+.newPostPopUp .displayMessageContainer p {
+  text-shadow: 0 0 0.2rem var(--black-01);
+  font-weight: 700;
 }
 
-@media (max-width: 720px) {
-  body main {
-    padding: 1rem 0rem;
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-  body main .tableContainer {
-    height: auto;
-    width: 90%;
-    margin-bottom: 2rem;
-  }
-  body main #map {
-    width: 90%;
-    margin-bottom: 2rem;
-  }
-}/*# sourceMappingURL=app.css.map */
+.darkMode .newPostPopUp .newPostForm .closeBtn {
+  filter: invert(1);
+}/*# sourceMappingURL=popup.css.map */

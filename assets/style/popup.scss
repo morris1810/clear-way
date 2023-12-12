@@ -1,0 +1,199 @@
+@use "main.scss";
+
+.newPostPopUp {
+    z-index: 150;
+    @include main.absCenter();
+    @include main.dFlex();
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    font-size: 1.5rem;
+    background-color: #00000066;
+    overflow-y: scroll;
+
+    .newPostForm {
+        @include main.dFlex($a: start);
+        max-width: 360px;
+        background-color: var(--bg-color);
+        font-size: 1.5rem;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 0.25rem var(--shadow-color);
+
+        .closeBtn {
+            height: 2rem;
+            align-self: flex-end;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        input,
+        select {
+            font-size: 1.5rem;
+            width: calc(100% - 2rem - 4px);
+            border: solid 2px var(--text-color);
+            border-radius: 1rem;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0rem;
+            background-color: transparent;
+            color: var(--text-color);
+        }
+
+        .placeholderText {
+            color: #757575;
+        }
+
+
+        select {
+            position: relative;
+            appearance: none;
+            -webkit-appearance: none;
+            background-color: var(--bg-color);
+
+
+            &:has(option:first-child:checked) {
+                background-color: transparent;
+                color: #757575;
+            }
+        }
+
+        .row {
+            @include main.dFlex($fd: row, $j: space-between);
+            width: 100%;
+
+            input {
+                width: 40%;
+            }
+
+            select {
+                width: 45%;
+            }
+        }
+
+
+        .radioConatiner {
+            position: relative;
+            @include main.dFlex($fd: row);
+            border: var(--text-color) 2px solid;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin: 1rem 0rem;
+
+            input {
+                display: none;
+                // position: absolute;
+                // top: 0;
+                // left: 0;
+                // width: 0px;
+            }
+
+            label {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 0rem;
+                cursor: pointer;
+            }
+
+            #trafficJamLow {
+                &:hover+#trafficJamLowLabel {
+
+                    background-color: var(--grey-02);
+                    font-weight: 800;
+                }
+
+                &:checked+#trafficJamLowLabel {
+                    background-color: var(--green-color);
+                    font-weight: 800;
+                }
+            }
+
+            #trafficJamMedium {
+                &:hover+#trafficJamMediumLabel {
+
+                    background-color: var(--grey-02);
+                    font-weight: 800;
+                }
+
+                &:checked+#trafficJamMediumLabel {
+                    background-color: var(--yellow-color);
+                    font-weight: 800;
+                }
+            }
+
+            #trafficJamHigh {
+                &:hover+#trafficJamHighLabel {
+
+                    background-color: var(--grey-02);
+                    font-weight: 800;
+                }
+
+                &:checked+#trafficJamHighLabel {
+                    background-color: var(--red-color);
+                    font-weight: 800;
+                }
+            }
+        }
+
+        .dateContainer {
+            label {
+                width: auto;
+            }
+
+            .readonly {
+                display: none;
+                border: none;
+                width: 100%;
+                outline: none;
+                pointer-events: none;
+            }
+
+            p {
+                border: none;
+                width: 100%;
+                padding-left: 1rem;
+                outline: none;
+                pointer-events: none;
+            }
+        }
+
+        .submitBtn {
+            font-size: 1.5rem;
+            width: 100%;
+            border: solid 2px var(--text-color);
+            background-color: var(--grey-02);
+            color: var(--text-color);
+            border-radius: 1rem;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease-in-out;
+
+            &:hover {
+                background-color: var(--brand-color);
+                color: var(--white-01);
+            }
+        }
+    }
+
+    .displayMessageContainer {
+        @include main.dFlex();
+        border-radius: 1rem;
+        p {
+            text-shadow: 0 0 0.2rem var(--black-01) ;
+            font-weight: 700;
+        }
+    }
+}
+
+.darkMode {
+    .newPostPopUp {
+        .newPostForm {
+            .closeBtn {
+                filter: invert(1);
+            }
+        }
+    }
+}

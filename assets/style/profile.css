@@ -21,10 +21,11 @@
   --light-grey-color: #aaaaaa;
   --red-color: #ff3a3a;
   --yellow-color: #fff53a;
-  --greeen-color: #51ff3a;
+  --green-color: #51ff3a;
   --white-01: #ffffff;
   --black-01: #000000;
   --grey-01: #505050;
+  --grey-02: #00000012;
   font-size: 12px;
   --brand-linear-color: linear-gradient(to right top, #26b656, #00b171, #00ab86, #00a395, #009b9c);
 }
@@ -45,19 +46,9 @@
   --dark-green: #deffe3;
   --grey-01: #9d9d9d;
   --url-color: rgb(118, 115, 255);
-}
-.darkMode .switchDisplayModeBtn {
-  background: url("../imgs/dark-mode.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-}
-.darkMode header {
-  border-color: var(--dark-green-2);
-}
-.darkMode header::before {
-  background-color: rgba(0, 99, 109, 0.3294117647);
+  --red-color: #a42222;
+  --yellow-color: #a4a022;
+  --green-color: #26a422;
 }
 
 header {
@@ -150,12 +141,16 @@ header .rightContainer .navBar .goToAppBtn:hover {
 }
 
 .postBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 3.5rem;
   width: 3.5rem;
   border-radius: 100%;
-  background-color: var(--dark-green);
-  color: var(--light-green);
-  border: 2px solid var(--light-green);
+  color: var(--dark-green);
+  background-color: var(--light-green);
+  border: 2px solid var(--dark-green);
   outline: none;
   text-align: center;
   vertical-align: middle;
@@ -163,11 +158,12 @@ header .rightContainer .navBar .goToAppBtn:hover {
   font-size: 2rem;
   font-weight: 600;
   transition: 0.25s;
+  text-decoration: none;
 }
 .postBtn:hover {
-  background-color: var(--light-green);
-  color: var(--dark-green);
-  border: 2px solid var(--dark-green);
+  background-color: var(--dark-green);
+  color: var(--light-green);
+  border: 2px solid var(--light-green);
 }
 
 .postPopUp {
@@ -204,7 +200,22 @@ header .rightContainer .navBar .goToAppBtn:hover {
   color: var(--error-color);
   font-size: 1.5rem;
   text-align: center;
-  line-height: 5rem;
+  margin: 1rem 0rem;
+  line-height: 2rem;
+}
+
+.darkMode .switchDisplayModeBtn {
+  background: url("../imgs/dark-mode.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.darkMode header {
+  border-color: var(--dark-green-2);
+}
+.darkMode header::before {
+  background-color: rgba(0, 99, 109, 0.3294117647);
 }
 
 html {
@@ -263,6 +274,7 @@ body main {
   height: 100%;
   width: calc(92vw - 16px);
   padding: 5rem 0rem;
+  position: relative;
 }
 body main .tableContainer {
   position: relative;
@@ -296,8 +308,12 @@ body main .tableContainer .dataTable .dataHeaderRow .dataHeader {
   background-color: var(--bg-color);
   transition: all 0.25s ease-in-out;
 }
+body main .tableContainer .dataTable .dataHeaderRow .dataHeader:nth-child(3) {
+  text-align: center;
+}
 body main .tableContainer .dataTable .dataHeaderRow .dataHeader:nth-child(2) {
   text-align: center;
+  padding: 0;
 }
 body main .tableContainer .dataTable .dataContentRow {
   font-size: 1.5rem;
@@ -309,12 +325,12 @@ body main .tableContainer .dataTable .dataContentRow .dataContent {
   padding: 1rem;
   color: var(--text-color);
 }
-body main .tableContainer .dataTable .dataContentRow .dataContent:nth-child(2) {
+body main .tableContainer .dataTable .dataContentRow .dataContent:nth-child(3), body main .tableContainer .dataTable .dataContentRow .dataContent:nth-child(2) {
   text-align: center;
 }
 body main .tableContainer .dataTable .dataContentRow .status {
   position: relative;
-  width: 3rem;
+  width: 2rem;
 }
 body main .tableContainer .dataTable .dataContentRow .status::after {
   content: " ";
@@ -336,12 +352,6 @@ body main .tableContainer .dataTable .dataContentRow .status.statusMedium::after
 }
 body main .tableContainer .dataTable .dataContentRow .status.statusHeavy::after {
   background-color: var(--red-color);
-}
-body main .tableContainer .btnContainer {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  padding: 0.5rem 0rem;
 }
 body main .personalInfoContainer {
   display: flex;
@@ -378,7 +388,7 @@ body main .personalInfoContainer .bottomContainer {
   width: 100%;
 }
 body main .personalInfoContainer .bottomContainer .incompleteMessage {
-  color: var(--green-color);
+  color: var(--grey-01);
   align-self: center;
   text-align: center;
   font-size: 1.2rem;
@@ -404,8 +414,8 @@ body main .personalInfoContainer .bottomContainer .buttonContainer a {
   font-size: 1.2rem;
 }
 body main .personalInfoContainer .bottomContainer .buttonContainer a:hover {
-  color: var(--text-color);
-  border-color: var(--text-color);
+  color: var(--brand-color);
+  border-color: var(--brand-color);
 }
 body main .personalInfoContainer .bottomContainer .buttonContainer .logoutBtn {
   border-color: var(--red-color);
@@ -415,6 +425,12 @@ body main .personalInfoContainer .bottomContainer .buttonContainer .logoutBtn:ho
   background-color: var(--red-color);
   color: var(--text-color);
   border-color: var(--text-color);
+}
+body main .btnContainer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.5rem 0rem;
 }
 
 @media (max-width: 720px) {
@@ -429,7 +445,7 @@ body main .personalInfoContainer .bottomContainer .buttonContainer .logoutBtn:ho
     height: auto;
     margin-bottom: 2rem;
   }
-  body main .tableContainer .btnContainer {
+  body main .btnContainer {
     position: fixed;
     bottom: 1.2rem;
     right: 1.2rem;

@@ -21,10 +21,11 @@
   --light-grey-color: #aaaaaa;
   --red-color: #ff3a3a;
   --yellow-color: #fff53a;
-  --greeen-color: #51ff3a;
+  --green-color: #51ff3a;
   --white-01: #ffffff;
   --black-01: #000000;
   --grey-01: #505050;
+  --grey-02: #00000012;
   font-size: 12px;
   --brand-linear-color: linear-gradient(to right top, #26b656, #00b171, #00ab86, #00a395, #009b9c);
 }
@@ -45,19 +46,9 @@
   --dark-green: #deffe3;
   --grey-01: #9d9d9d;
   --url-color: rgb(118, 115, 255);
-}
-.darkMode .switchDisplayModeBtn {
-  background: url("../imgs/dark-mode.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-}
-.darkMode header {
-  border-color: var(--dark-green-2);
-}
-.darkMode header::before {
-  background-color: rgba(0, 99, 109, 0.3294117647);
+  --red-color: #a42222;
+  --yellow-color: #a4a022;
+  --green-color: #26a422;
 }
 
 header {
@@ -150,12 +141,16 @@ header .rightContainer .navBar .goToAppBtn:hover {
 }
 
 .postBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 3.5rem;
   width: 3.5rem;
   border-radius: 100%;
-  background-color: var(--dark-green);
-  color: var(--light-green);
-  border: 2px solid var(--light-green);
+  color: var(--dark-green);
+  background-color: var(--light-green);
+  border: 2px solid var(--dark-green);
   outline: none;
   text-align: center;
   vertical-align: middle;
@@ -163,11 +158,12 @@ header .rightContainer .navBar .goToAppBtn:hover {
   font-size: 2rem;
   font-weight: 600;
   transition: 0.25s;
+  text-decoration: none;
 }
 .postBtn:hover {
-  background-color: var(--light-green);
-  color: var(--dark-green);
-  border: 2px solid var(--dark-green);
+  background-color: var(--dark-green);
+  color: var(--light-green);
+  border: 2px solid var(--light-green);
 }
 
 .postPopUp {
@@ -204,5 +200,20 @@ header .rightContainer .navBar .goToAppBtn:hover {
   color: var(--error-color);
   font-size: 1.5rem;
   text-align: center;
-  line-height: 5rem;
+  margin: 1rem 0rem;
+  line-height: 2rem;
+}
+
+.darkMode .switchDisplayModeBtn {
+  background: url("../imgs/dark-mode.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.darkMode header {
+  border-color: var(--dark-green-2);
+}
+.darkMode header::before {
+  background-color: rgba(0, 99, 109, 0.3294117647);
 }/*# sourceMappingURL=main.css.map */

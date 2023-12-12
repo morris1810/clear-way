@@ -65,7 +65,7 @@ body {
         height: 100%;
         width: calc(92vw - 16px);
         padding: 5rem 0rem;
-
+        position: relative;
 
 
         .tableContainer {
@@ -74,13 +74,15 @@ body {
             overflow: auto;
 
             width: calc(48% - 4rem - 8px);
- 
+
             border: solid 4px var(--dark-green);
             border-radius: 1rem;
             padding: 2rem;
+
             h3 {
                 font-size: 2rem;
             }
+
             .dataTable {
                 position: relative;
                 width: 100%;
@@ -107,8 +109,14 @@ body {
                         transition: all 0.25s ease-in-out;
 
 
+
+                        &:nth-child(3) {
+                            text-align: center;
+                        }
+
                         &:nth-child(2) {
                             text-align: center;
+                            padding: 0;
                         }
                     }
                 }
@@ -122,17 +130,21 @@ body {
                         font-weight: 500;
                         padding: 1rem;
                         color: var(--text-color);
+
+                        &:nth-child(3),
                         &:nth-child(2) {
                             text-align: center;
                         }
                     }
+
                     .status {
                         position: relative;
-                        width: 3rem;
+                        width: 2rem;
+
                         &::after {
                             content: " ";
                             @include main.absCenter();
-                            height: 1rem; 
+                            height: 1rem;
                             width: 1rem;
                             border: solid 2px var(--text-color);
                             background-color: var(--light-grey-color);
@@ -142,22 +154,18 @@ body {
                         &.statusLight::after {
                             background-color: var(--green-color);
                         }
+
                         &.statusMedium::after {
                             background-color: var(--yellow-color);
                         }
+
                         &.statusHeavy::after {
                             background-color: var(--red-color);
                         }
                     }
                 }
             }
-            .btnContainer {
 
-                position: absolute;
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.5rem 0rem;
-            }
         }
 
         .personalInfoContainer {
@@ -168,34 +176,43 @@ body {
             border: solid 4px var(--dark-green);
             border-radius: 1rem;
             padding: 2rem;
+
             .topContainer {
                 width: 100%;
+
                 h3 {
                     font-size: 2rem;
                 }
+
                 table {
                     width: 100%;
+
                     tr {
                         height: 3rem;
+
                         td {
                             font-size: 1.5rem;
                         }
                     }
                 }
             }
+
             .bottomContainer {
-                @include main.dFlex($a:end);
+                @include main.dFlex($a: end);
                 width: 100%;
+
                 .incompleteMessage {
-                    color: var(--green-color);
+                    color: var(--grey-01);
                     align-self: center;
                     text-align: center;
                     font-size: 1.2rem;
                     padding: 2rem 0rem;
                 }
+
                 .buttonContainer {
-                    @include main.dFlex($fd: row, $j: end );
+                    @include main.dFlex($fd: row, $j: end);
                     flex-wrap: wrap;
+
                     a {
                         background-color: transparent;
                         padding: 0.4rem 1rem;
@@ -207,14 +224,17 @@ body {
                         transition: 0.25s ease-in-out;
                         border: var(--grey-01) 2px solid;
                         font-size: 1.2rem;
+
                         &:hover {
-                            color: var(--text-color);
-                            border-color: var(--text-color);
+                            color: var(--brand-color);
+                            border-color: var(--brand-color);
                         }
                     }
+
                     .logoutBtn {
                         border-color: var(--red-color);
                         color: var(--red-color);
+
                         &:hover {
                             background-color: var(--red-color);
                             color: var(--text-color);
@@ -223,6 +243,13 @@ body {
                     }
                 }
             }
+        }
+
+        .btnContainer {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            padding: 0.5rem 0rem;
         }
     }
 
@@ -237,25 +264,26 @@ body {
             flex-direction: column;
             align-items: center;
             padding: 1rem 0rem;
-            .personalInfoContainer ,
+
+            .personalInfoContainer,
             .tableContainer {
                 width: calc(100% - 4rem);
                 height: auto;
                 margin-bottom: 2rem;
             }
-            .tableContainer {
-                .btnContainer {
-                    position: fixed;
-                    bottom: 1.2rem;
-                    right: 1.2rem;
-                }
+
+            .btnContainer {
+                position: fixed;
+                bottom: 1.2rem;
+                right: 1.2rem;
+
             }
 
         }
     }
 }
 
- 
+
 .postPopUp {
     z-index: 150;
     @include main.absCenter();
@@ -294,17 +322,19 @@ body {
 
         .radioConatiner {
             position: relative;
+
             input {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 0px;
             }
-            #trafficJamLow:checked + #trafficJamLowLabel,
-            #trafficJamMedium:checked + #trafficJamMediumLabel,
-            #trafficJamHigh:checked + #trafficJamHighLabel {
+
+            #trafficJamLow:checked+#trafficJamLowLabel,
+            #trafficJamMedium:checked+#trafficJamMediumLabel,
+            #trafficJamHigh:checked+#trafficJamHighLabel {
                 background: #000;
-              }   
+            }
         }
     }
 }

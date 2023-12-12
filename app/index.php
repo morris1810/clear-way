@@ -1,9 +1,14 @@
 <?php
+
+//================================
+// Query Data
+//================================
+
 function get_status_by_state($state)
 {
 	require('mysqli_connect.php');
 
-	$query_status = "SELECT traffic_jam AS status FROM post_data WHERE state = '" . $state . "' AND date = CURDATE()";
+	$query_status = "SELECT traffic_jam AS status FROM post_data WHERE state = '" . $state . "' ORDER BY date DESC LIMIT 1";
 	$query_result = mysqli_query($dbc, $query_status);
 
 	if ($query_result && mysqli_num_rows($query_result) > 0) {
@@ -37,6 +42,7 @@ $state_list = array(
 $state_status_list = array();
 
 $state_status_table = '';
+$state_option = '';
 $state_status_table .=
 	'<table class="dataTable">
 		<tr class="dataHeaderRow">
@@ -46,6 +52,7 @@ $state_status_table .=
 		</tr>';
 
 foreach ($state_list as $state) {
+	//get all status for each state
 	$status = get_status_by_state($state);
 	$state_status_list[$state] = $status;
 	$state_status_table .=
@@ -54,15 +61,131 @@ foreach ($state_list as $state) {
 			<td class="dataContent">' . $status . '</td>
 			<td class="status status' . str_replace(' ', '', $status) . '"></td>
 		</tr>';
+	//generate the option with all state
+	$state_option .= '<option value="' . $state . '">' . $state . '</option>';
 }
 
 
 
 $state_status_table .= '</table>';
 
+//================================================================
+// For pop up post data and handle post data form submission
+//================================================================
+
+session_start();
+
+$post_data_pop_up_css = "display: none;";
+if (isset($_GET['action']) && $_GET['action'] == 'post_data') {
+
+	// Check if the user is logged in by looking at session data.
+	if (!isset($_SESSION['user_id'])) {
+		header('Location: login.php');
+		exit();
+	}
+
+	$post_data_pop_up_css = "display: auto;";
+}
 
 
+$error_message = '';
+
+// Check for form submission:
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+	// Check if the user is logged in.
+	if (!isset($_SESSION['user_id'])) {
+		// Not logged in, redirect to login page.
+		header('Location: login.php');
+		exit();
+	}
+
+	require('mysqli_connect.php');
+
+	$errors = array();
+
+	// Check and validate the street (optional):
+	$street = !empty($_POST['street']) ? mysqli_real_escape_string($dbc, trim($_POST['street'])) : NULL;
+
+	// Check for a city:
+	if (empty($_POST['city'])) {
+		$errors[] = 'You forgot to enter your city.';
+	} else {
+		$city = mysqli_real_escape_string($dbc, trim($_POST['city']));
+	}
+
+	// Check for a state:
+	if (empty($_POST['state'])) {
+		$errors[] = 'You forgot to enter your state.';
+	} else {
+		$state = mysqli_real_escape_string($dbc, trim($_POST['state']));
+	}
+
+	// Check for a postcode:
+	if (empty($_POST['postcode'])) {
+		$errors[] = 'You forgot to enter your postcode.';
+	} else {
+		$postcode = mysqli_real_escape_string($dbc, trim($_POST['postcode']));
+	}
+
+	// Check for a country:
+	if (empty($_POST['country'])) {
+		$errors[] = 'You forgot to enter your country.';
+	} else {
+		$country = mysqli_real_escape_string($dbc, trim($_POST['country']));
+	}
+
+	// Check for the traffic jam value:
+	if (empty($_POST['traffic_jam'])) {
+		$errors[] = 'You forgot to specify the traffic jam level.';
+	} else {
+		$traffic_jam = mysqli_real_escape_string($dbc, trim($_POST['traffic_jam']));
+	}
+
+	// Check for the date:
+	if (empty($_POST['date'])) {
+		$errors[] = 'You forgot to enter the date of the traffic report.';
+	} else {
+		$date = mysqli_real_escape_string($dbc, trim($_POST['date']));
+	}
+
+	if (empty($errors)) {
+
+		// Retrieve the email from the session
+		$email = isset($_SESSION['email']) ? mysqli_real_escape_string($dbc, $_SESSION['email']) : null;
+
+		// Create the query:
+		$query = "INSERT INTO post_data (user_email, street, city, state, postcode, country, traffic_jam, date)
+              VALUES ('$email', '$street', '$city', '$state', '$postcode', '$country', '$traffic_jam', '$date')";
+
+		$result = mysqli_query($dbc, $query);
+
+		if ($result) {
+			// Success message or redirection
+			$result_message =  'Your traffic report has been submitted successfully.';
+		} else { // If it did not run OK.
+			// Public message:
+			$result_message = 'Something went wrong';
+
+			// Debugging message:
+			echo '<script> console.log("' . mysqli_error($dbc) . '\nQuery: ' . $query . '");</script>';
+		}
+		echo '<script>alert("' . $result_message . '")</script>';
+
+
+		mysqli_close($dbc); // Close the database connection.
+		header('Location: index.php');
+	} else {
+		// Report the errors.
+		foreach ($errors as $e) {
+			$error_message .= '<p class="errorText">' . $e . '</p>';
+		}
+		//scroll to bottom
+		$error_message .= '<script>window.scrollTo(0, document.body.scrollHeight);</script>';
+	}
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,6 +197,7 @@ $state_status_table .= '</table>';
 
 	<!-- CSS Styling -->
 	<link rel="stylesheet" href="../assets/style/app.css">
+	<link rel="stylesheet" href="../assets/style/popup.css">
 </head>
 
 <body>
@@ -102,33 +226,56 @@ $state_status_table .= '</table>';
 
 	</main>
 	<div class="btnContainer">
-		<button class="postBtn">
+		<a href="?action=post_data" class="postBtn">
 			+
-		</button>
+		</a>
 	</div>
-	<!-- <div class="postPopUp">
-		<form method="post" class="newPostForm">
-			<label>Location</label>
-			<input type="text" placeholder="Street(Optional)">
-			<input type="text" placeholder="City*">
+	<div class="newPostPopUp" style="<?php echo $post_data_pop_up_css; ?>">
+		<div class="displayMessageContainer">
+			<?php
+			echo $error_message;
+			?>
+		</div>
+		<form method="post" class="newPostForm" action="index.php?action=post_data">
+			<input type="hidden" name="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
+			<a href="?action=none" class="closeBtn">
+				<img src="../assets/imgs/close.png" alt="close button">
+			</a>
+			<label>Location:</label>
+			<input name="street" type="text" placeholder="Street(Optional)" value="<?php if (isset($_POST['street'])) echo $_POST['street']; ?>">
+			<input name="city" type="text" placeholder="City*" value="<?php if (isset($_POST['city'])) echo $_POST['city']; ?>">
 			<span class="row">
-				<input type="text" placeholder="State*">
-				<input type="text" placeholder="Postcode*">
+				<!-- <input type="text" placeholder="State*"> -->
+				<select id="state" name="state">
+					<option disabled selected value="">State*</option>
+					<?php
+					if (isset($_POST['state'])) {
+						echo '<option value="'.$_POST['state'].'" selected>'.$_POST['state'].'</option>';
+					}
+
+					echo $state_option;
+					?>
+				</select>
+				<input name="postcode" type="text" placeholder="Postcode*" value="<?php if (isset($_POST['postcode'])) echo $_POST['postcode']; ?>">
 			</span>
-			<input type="text" placeholder="Country*">
+			<input name="country" type="text" placeholder="Country*" value="<?php if (isset($_POST['country'])) echo $_POST['country']; ?>">
 			<label for="">Traffic Jam:</label>
 			<div class="row radioConatiner">
-				<input type="radio" name="trafficJam" id="trafficJamLow" value="low">
-				<input type="radio" name="trafficJam" id="trafficJamMedium" value="medium">
-				<input type="radio" name="trafficJam" id="trafficJamHigh" value="high">
-				<label id="trafficJamLowLabel" for="trafficJamLow">Low</label>
+				<input type="radio" name="traffic_jam" id="trafficJamLow" value="light" <?php if (isset($_POST['traffic_jam']) && $_POST['traffic_jam'] == 'light') echo 'checked="checked"'; ?>>
+				<label id="trafficJamLowLabel" for="trafficJamLow">Light</label>
+				<input type="radio" name="traffic_jam" id="trafficJamMedium" value="medium" <?php if (isset($_POST['traffic_jam']) && $_POST['traffic_jam'] == 'medium') echo 'checked="checked"'; ?>>
 				<label id="trafficJamMediumLabel" for="trafficJamMedium">Medium</label>
-				<label id="trafficJamHighLabel" for="trafficJamHigh">High</label>
+				<input type="radio" name="traffic_jam" id="trafficJamHigh" value="heavy" <?php if (isset($_POST['traffic_jam']) && $_POST['traffic_jam'] == 'heavy') echo 'checked="checked"'; ?>>
+				<label id="trafficJamHighLabel" for="trafficJamHigh">Heavy</label>
 			</div>
-			<label>Date</label> <input type="text" readonly>
-			<button type="submit">Post</button>
+			<span class="row dateContainer">
+				<label>Date:</label>
+				<input class="readonly" name="date" type="text" readonly value="<?php echo date('Y-m-d H:i:s'); ?>">
+				<p> <?php echo date('d-M-Y H:i'); ?></p>
+			</span>
+			<button class="submitBtn" type="submit" name="submit">Post</button>
 		</form>
-	</div> -->
+	</div>
 	<script>
 		(g => {
 			var h, a, k, p = "The Google Maps JavaScript API",
@@ -333,7 +480,7 @@ $state_status_table .= '</table>';
 					strokeWeight: 2,
 					strokeColor: "black",
 					rotation: 0,
-					scale: 12,
+					scale: 8,
 				};
 
 				new google.maps.Marker({
