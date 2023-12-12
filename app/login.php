@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 // Redirect to another page:
                 if ($row['role'] == 'admin') {
-                    header("Location: Admin_Page.php");
+                    header("Location: admin_table_user.php");
                 } else {
                     // Redirect the user to a login page if not an admin:
                     header("Location: index.php");

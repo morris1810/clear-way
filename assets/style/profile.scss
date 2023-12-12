@@ -122,7 +122,7 @@ body {
                 }
 
                 .dataContentRow {
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                     border-bottom: 2px dotted var(--dark-green);
 
                     .dataContent {
@@ -191,7 +191,7 @@ body {
                         height: 3rem;
 
                         td {
-                            font-size: 1.5rem;
+                            font-size: 1.2rem;
                         }
                     }
                 }
@@ -228,6 +228,7 @@ body {
                         &:hover {
                             color: var(--brand-color);
                             border-color: var(--brand-color);
+                            background-color: var(--brand-color-secondary);
                         }
                     }
 
@@ -270,6 +271,12 @@ body {
                 width: calc(100% - 4rem);
                 height: auto;
                 margin-bottom: 2rem;
+
+                .dataContent {
+                    &:nth-child(1) {
+                        min-width: 50vw;
+                    }
+                }
             }
 
             .btnContainer {

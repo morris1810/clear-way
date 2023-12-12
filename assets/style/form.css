@@ -200,7 +200,8 @@ header .rightContainer .navBar .goToAppBtn:hover {
   color: var(--error-color);
   font-size: 1.5rem;
   text-align: center;
-  line-height: 5rem;
+  margin: 1rem 0rem;
+  line-height: 2rem;
 }
 
 .darkMode .switchDisplayModeBtn {
@@ -297,7 +298,7 @@ body main form .inputContainer label {
   transform: translateY(-200%);
   font-size: 1rem;
 }
-body main form .inputContainer input {
+body main form .inputContainer input, body main form .inputContainer select {
   width: 90%;
   font-size: 1.5rem;
   outline: none;
@@ -306,6 +307,12 @@ body main form .inputContainer input {
   background: transparent;
   border-radius: 12px;
   padding: 1rem 5%;
+}
+body main form .inputContainer select {
+  width: 100%;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
 }
 body main form .forgotPasswordLink {
   align-self: flex-end;

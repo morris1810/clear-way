@@ -218,11 +218,8 @@ header .rightContainer .navBar .goToAppBtn:hover {
   background-color: rgba(0, 99, 109, 0.3294117647);
 }
 
-html {
-  overflow-x: hidden;
-}
-
 body {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -235,21 +232,100 @@ body {
   background-color: var(--bg-color);
   transition: all 0.25s ease-in-out;
 }
-body header {
+body .bgLogoImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+  max-width: 90vw;
+  width: 35rem;
+}
+body .flexContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+body .flexContainer .dropDownContainer {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+body .flexContainer .dropDownContainer .currentTable {
+  color: var(--text-color);
+  position: relative;
+  font-size: 2rem;
+  padding: 1rem 2rem 1rem 0rem;
+}
+body .flexContainer .dropDownContainer .currentTable::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 100%;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-image: url("../imgs/dropdown.png");
+  background-position: center;
+  background-size: contain;
+}
+body .flexContainer .dropDownContainer .optionContainer {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: calc(120% + 4px);
+  height: 0px;
+  background-color: var(--bg-color);
+  border: solid 0px var(--text-color);
+  border-radius: 1rem;
+  padding: 0rem;
+  transition: 0.25s ease-in-out;
+  overflow: hidden;
+}
+body .flexContainer .dropDownContainer .optionContainer .otherTable {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+body .flexContainer .dropDownContainer:active .optionContainer, body .flexContainer .dropDownContainer:focus .optionContainer, body .flexContainer .dropDownContainer:hover .optionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  padding: 1rem;
+  border-width: 2px;
+}
+body .flexContainer .dropDownContainer:active .optionContainer:hover, body .flexContainer .dropDownContainer:focus .optionContainer:hover, body .flexContainer .dropDownContainer:hover .optionContainer:hover {
+  background-color: var(--text-color);
+}
+body .flexContainer .dropDownContainer:active .optionContainer:hover .otherTable, body .flexContainer .dropDownContainer:focus .optionContainer:hover .otherTable, body .flexContainer .dropDownContainer:hover .optionContainer:hover .otherTable {
+  color: var(--bg-color);
+}
+body .flexContainer header {
   position: relative;
   border: 2px var(--text-color) solid;
+  margin: 1.2rem 0rem;
+  width: auto;
 }
-body header::before {
+body .flexContainer header::before {
   display: none;
 }
-body header .leftContainer .companyName {
-  color: var(--text-color);
-  text-shadow: none;
-}
-body header .rightContainer .navBar .switchDisplayModeBtn {
+body .flexContainer header .rightContainer .navBar .switchDisplayModeBtn {
   filter: none;
 }
-body header .rightContainer .navBar .mapBtn {
+body .flexContainer header .rightContainer .navBar .logoutBtn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -263,30 +339,19 @@ body header .rightContainer .navBar .mapBtn {
   border: var(--black-01) 2px solid;
   box-shadow: 0 0 0.1rem var(--shadow-color);
 }
-body header .rightContainer .navBar .mapBtn img {
+body .flexContainer header .rightContainer .navBar .logoutBtn img {
   height: 80%;
 }
 body main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
-  height: 100%;
-  width: calc(92vw - 16px);
-  padding: 5rem 0rem;
-  position: relative;
+  width: calc(90% + 8px);
 }
 body main .tableContainer {
-  position: relative;
-  height: calc(100vh - 3.5rem - 4px - 3.4rem - 10rem - 8px - 4rem);
+  height: calc(100vh - 3.5rem - 4px - 3.4rem - 6rem - 8px - 2rem);
   overflow: auto;
-  width: calc(48% - 4rem - 8px);
-  border: solid 4px var(--dark-green);
+  width: 100%;
   border-radius: 1rem;
-  padding: 2rem;
-}
-body main .tableContainer h3 {
-  font-size: 2rem;
+  border: 4px solid var(--text-color);
+  padding: 1rem 0rem;
 }
 body main .tableContainer .dataTable {
   position: relative;
@@ -307,13 +372,7 @@ body main .tableContainer .dataTable .dataHeaderRow .dataHeader {
   color: var(--grey-01);
   background-color: var(--bg-color);
   transition: all 0.25s ease-in-out;
-}
-body main .tableContainer .dataTable .dataHeaderRow .dataHeader:nth-child(3) {
   text-align: center;
-}
-body main .tableContainer .dataTable .dataHeaderRow .dataHeader:nth-child(2) {
-  text-align: center;
-  padding: 0;
 }
 body main .tableContainer .dataTable .dataContentRow {
   font-size: 1.2rem;
@@ -324,13 +383,22 @@ body main .tableContainer .dataTable .dataContentRow .dataContent {
   font-weight: 500;
   padding: 1rem;
   color: var(--text-color);
-}
-body main .tableContainer .dataTable .dataContentRow .dataContent:nth-child(3), body main .tableContainer .dataTable .dataContentRow .dataContent:nth-child(2) {
   text-align: center;
+}
+body main .tableContainer .dataTable .dataContentRow .dataContent.aBitLongContent {
+  min-width: 20rem;
+}
+body main .tableContainer .dataTable .dataContentRow .dataContent.longContent {
+  min-width: 20rem;
+  text-align: left;
+  padding: 1em 2rem;
+}
+body main .tableContainer .dataTable .dataContentRow .dataContent img {
+  max-height: 2rem;
 }
 body main .tableContainer .dataTable .dataContentRow .status {
   position: relative;
-  width: 2rem;
+  width: 3rem;
 }
 body main .tableContainer .dataTable .dataContentRow .status::after {
   content: " ";
@@ -353,165 +421,58 @@ body main .tableContainer .dataTable .dataContentRow .status.statusMedium::after
 body main .tableContainer .dataTable .dataContentRow .status.statusHeavy::after {
   background-color: var(--red-color);
 }
-body main .personalInfoContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-  position: relative;
-  width: calc(48% - 4rem - 8px);
-  height: calc(100vh - 3.5rem - 4px - 3.4rem - 10rem - 8px - 4rem);
-  border: solid 4px var(--dark-green);
-  border-radius: 1rem;
-  padding: 2rem;
-}
-body main .personalInfoContainer .topContainer {
-  width: 100%;
-}
-body main .personalInfoContainer .topContainer h3 {
-  font-size: 2rem;
-}
-body main .personalInfoContainer .topContainer table {
-  width: 100%;
-}
-body main .personalInfoContainer .topContainer table tr {
-  height: 3rem;
-}
-body main .personalInfoContainer .topContainer table tr td {
-  font-size: 1.2rem;
-}
-body main .personalInfoContainer .bottomContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  width: 100%;
-}
-body main .personalInfoContainer .bottomContainer .incompleteMessage {
-  color: var(--grey-01);
-  align-self: center;
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 2rem 0rem;
-}
-body main .personalInfoContainer .bottomContainer .buttonContainer {
+body main .bottomContainer {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-}
-body main .personalInfoContainer .bottomContainer .buttonContainer a {
-  background-color: transparent;
-  padding: 0.4rem 1rem;
-  margin: 0.5rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  color: var(--grey-01);
-  font-weight: 800;
-  transition: 0.25s ease-in-out;
-  border: var(--grey-01) 2px solid;
+  width: 100%;
   font-size: 1.2rem;
+  height: 6rem;
 }
-body main .personalInfoContainer .bottomContainer .buttonContainer a:hover {
-  color: var(--brand-color);
-  border-color: var(--brand-color);
-  background-color: var(--brand-color-secondary);
+body main .bottomContainer .pageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-body main .personalInfoContainer .bottomContainer .buttonContainer .logoutBtn {
-  border-color: var(--red-color);
-  color: var(--red-color);
-}
-body main .personalInfoContainer .bottomContainer .buttonContainer .logoutBtn:hover {
-  background-color: var(--red-color);
+body main .bottomContainer .pageContainer a {
+  padding: 0 1rem;
   color: var(--text-color);
-  border-color: var(--text-color);
+  text-decoration: none;
 }
-body main .btnContainer {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  padding: 0.5rem 0rem;
+body main .bottomContainer .pageContainer .active {
+  padding: 0 1rem;
+  color: var(--brand-color);
+}
+body main .bottomContainer .sortBtnContainer {
+  border: 2px solid var(--text-color);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+}
+body main .bottomContainer .sortBtnContainer a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+body main .bottomContainer .sortBtnContainer.de_desc {
+  background-color: var(--text-color);
+}
+body main .bottomContainer .sortBtnContainer.de_desc a {
+  color: var(--bg-color);
 }
 
 @media (max-width: 720px) {
-  body main {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0rem;
-  }
-  body main .personalInfoContainer,
   body main .tableContainer {
-    width: calc(100% - 4rem);
+    min-height: auto;
     height: auto;
-    margin-bottom: 2rem;
   }
-  body main .personalInfoContainer .dataContent:nth-child(1),
-  body main .tableContainer .dataContent:nth-child(1) {
-    min-width: 50vw;
-  }
-  body main .btnContainer {
-    position: fixed;
-    bottom: 1.2rem;
-    right: 1.2rem;
+  body main .bottomContainer {
+    margin-top: 1rem;
   }
 }
-.postPopUp {
-  z-index: 150;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  font-size: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.4);
+.darkMode .flexContainer .dropDownContainer .currentTable::before {
+  filter: invert(1);
 }
-.postPopUp .newPostForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  max-width: 360px;
-  background-color: var(--bg-color);
-  font-size: 1.5rem;
-  padding: 2rem;
-  border-radius: 1rem;
-}
-.postPopUp .newPostForm input {
-  font-size: 1.5rem;
-  width: calc(100% - 2rem - 4px);
-  border: solid 2px var(--text-color);
-  border-radius: 1rem;
-  padding: 0.75rem 1rem;
-  margin: 1rem 0rem;
-}
-.postPopUp .newPostForm .row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-.postPopUp .newPostForm .row input {
-  width: 40%;
-}
-.postPopUp .newPostForm .radioConatiner {
-  position: relative;
-}
-.postPopUp .newPostForm .radioConatiner input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0px;
-}
-.postPopUp .newPostForm .radioConatiner #trafficJamLow:checked + #trafficJamLowLabel,
-.postPopUp .newPostForm .radioConatiner #trafficJamMedium:checked + #trafficJamMediumLabel,
-.postPopUp .newPostForm .radioConatiner #trafficJamHigh:checked + #trafficJamHighLabel {
-  background: #000;
-}/*# sourceMappingURL=profile.css.map */
+.darkMode main .tableContainer .dataTable .dataContent img {
+  filter: invert(1);
+}/*# sourceMappingURL=adminTable.css.map */
