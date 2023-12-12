@@ -139,6 +139,7 @@ if ($pages > 0) {
 </head>
 
 <body>
+    <img class="bgLogoImg" src="../assets/imgs/logo.png" alt="">
     <!-- ================================
      Navigation Bar 
     ================================= -->

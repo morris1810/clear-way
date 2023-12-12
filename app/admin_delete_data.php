@@ -2,6 +2,7 @@
 // This page is for deleting a user record.
 
 require('mysqli_connect.php');
+$result_message = '';
 
 // Check for a valid user ID, through GET or POST:
 if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) { // From Admin_Page.php
@@ -9,7 +10,8 @@ if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) { // From Admin_Page.php
 } elseif ((isset($_POST['id'])) && (is_numeric($_POST['id']))) {
     $id = $_POST['id'];
 } else { // No valid ID, kill the script.
-    echo '<p class="error">This page has been accessed in error.</p>';
+    $result_message .= '<p class="error">User not found.</p>';
+    $result_message .= '<a href="admin_table_user.php">Go Back</a>';
     exit();
 }
 
@@ -19,34 +21,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = "DELETE FROM user WHERE id=$id LIMIT 1";
         $result = mysqli_query($dbc, $query);
         if (mysqli_affected_rows($dbc) == 1) {
-            echo '<p>The user has been deleted.</p>';
+            $result_message .= '<p style="color: var(--text-color); font-size: 1.2rem;">The user has been deleted.</p>';
+            $result_message .= '<a href="admin_table_user.php">Go Back</a>';
+
         } else {
-            echo '<p class="error">The user could not be deleted due to a system error.</p>';
-            echo '<p>' . mysqli_error($dbc) . '<br />Query: ' . $query . '</p>';
+            $result_message .= '<p class="error">The user could not be deleted due to a system error.</p>';
+            $result_message .= '<p>' . mysqli_error($dbc) . '<br />Query: ' . $query . '</p>';
         }
     } else { // No confirmation of deletion.
-        echo '<p>The user has NOT been deleted.</p>';
+        $result_message .= '<p>The user has NOT been deleted.</p>';
+        $result_message .= '<a href="admin_table_user.php">Go Back</a>';
+
     }
 } else {
 
     // Retrieve the user's information:
     $query = "SELECT name FROM user WHERE id=$id";
     $result = mysqli_query($dbc, $query);
-
+    $display = '';
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result, MYSQLI_NUM);
-        echo "<h3>Name: {$row[0]}</h3>
-        Are you sure you want to delete this user?";
+        
+        $display .=  "<h5>Are you sure you want to delete {$row[0]}</h5>";
 
-
-        echo '<form action="Delete_Data.php" method="post">
-            <input type="radio" name="sure" value="Yes" /> Yes
-            <input type="radio" name="sure" value="No" checked="checked" /> No
-            <input type="submit" name="submit" value="Submit" />
+        $display .= '<form action="admin_delete_data.php" method="post">
+        <div class="radioContainer">
+            <input type="radio" id="yes" name="sure" value="Yes" /> 
+            <label id="yesLabel" for="yes">Yes</label>
+            <input type="radio" id="no" name="sure" value="No" checked /> 
+            <label id="noLabel" for="no">No</label>
+        </div>
+            <button class="submitBtn deleteBtn" type="submit" name="submit">DELETE</button>
             <input type="hidden" name="id" value="' . $id . '" />
         </form>';
+
     } else {
-        echo '<p class="error">This page has been accessed in error.</p>';
+        $result_message .= '<p class="error">This page has been accessed in error.</p>';
     }
 }
 
@@ -73,7 +83,10 @@ mysqli_close($dbc);
         <button class="switchDisplayModeBtn"></button>
     </header>
     <main>
-        
+        <?php echo $result_message; ?>
+        <?php echo $display; ?>
     </main>
+    <script src="../assets/script/displayMode.js"></script>
 </body>
+
 </html>

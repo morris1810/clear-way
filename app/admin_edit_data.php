@@ -146,7 +146,7 @@ mysqli_close($dbc);
             </div>
             <div class="inputContainer">
                 <label for="driving_experience">Driving Experience (Year):</label>
-                <input placeholder="example@gmail.com" type="text" name="driving_experience" id="driving_experience" value="<?php echo htmlspecialchars($driving_experience); ?>">
+                <input placeholder="0" type="text" name="driving_experience" id="driving_experience" value="<?php echo htmlspecialchars($driving_experience); ?>">
             </div>
             <div class="inputContainer">
                 <label for="role">Role:</label>
@@ -154,12 +154,11 @@ mysqli_close($dbc);
             </div>
             <br>
             <input type="hidden" name="id" value="<?php echo $id; ?>" />
-            <button class="submitBtn" type="submit" name="submit">UPDATE USER</button>
+            <button class="submitBtn" type="submit" name="submit">UPDATE</button>
             <a href="admin_table_user.php" class="cancelBtn">Cancel</a>
         </form>
     </main>
     <script src="../assets/script/displayMode.js"></script>
-
 </body>
 
 </html>

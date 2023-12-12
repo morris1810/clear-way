@@ -501,17 +501,17 @@ body main .btnContainer {
 .postPopUp .newPostForm .row input {
   width: 40%;
 }
-.postPopUp .newPostForm .radioConatiner {
+.postPopUp .newPostForm .radioContainer {
   position: relative;
 }
-.postPopUp .newPostForm .radioConatiner input {
+.postPopUp .newPostForm .radioContainer input {
   position: absolute;
   top: 0;
   left: 0;
   width: 0px;
 }
-.postPopUp .newPostForm .radioConatiner #trafficJamLow:checked + #trafficJamLowLabel,
-.postPopUp .newPostForm .radioConatiner #trafficJamMedium:checked + #trafficJamMediumLabel,
-.postPopUp .newPostForm .radioConatiner #trafficJamHigh:checked + #trafficJamHighLabel {
+.postPopUp .newPostForm .radioContainer #trafficJamLow:checked + #trafficJamLowLabel,
+.postPopUp .newPostForm .radioContainer #trafficJamMedium:checked + #trafficJamMediumLabel,
+.postPopUp .newPostForm .radioContainer #trafficJamHigh:checked + #trafficJamHighLabel {
   background: #000;
 }/*# sourceMappingURL=profile.css.map */

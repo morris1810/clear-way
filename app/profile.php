@@ -352,7 +352,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </span>
             <input name="country" type="text" placeholder="Country*" value="<?php if (isset($_POST['country'])) echo $_POST['country']; ?>">
             <label for="">Traffic Jam:</label>
-            <div class="row radioConatiner">
+            <div class="row radioContainer">
                 <input type="radio" name="traffic_jam" id="trafficJamLow" value="light" <?php if (isset($_POST['traffic_jam']) && $_POST['traffic_jam'] == 'light') echo 'checked="checked"'; ?>>
                 <label id="trafficJamLowLabel" for="trafficJamLow">Light</label>
                 <input type="radio" name="traffic_jam" id="trafficJamMedium" value="medium" <?php if (isset($_POST['traffic_jam']) && $_POST['traffic_jam'] == 'medium') echo 'checked="checked"'; ?>>

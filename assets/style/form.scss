@@ -50,16 +50,28 @@ body {
                 max-width: 200px;
             }
         }
-
+ 
         h3 {
             font-size: 1.2rem;
             width: 90%;
+        }
+        h5 {
+            font-size: 1.5rem;
+            width: 90%;
+        }
+
+        p, a {
+            font-size: 1.2rem;
+            text-align: center;
+            width: 95%;
+            color: var(--text-color)
         }
 
         form {
             @include main.dFlex();
             font-size: 1.5rem;
             width: 90%;
+
 
             .inputContainer {
                 position: relative;
@@ -97,6 +109,56 @@ body {
                 
             }
 
+            .radioContainer {
+                position: relative;
+                @include main.dFlex($fd: row);
+                border: var(--text-color) 2px solid;
+                border-radius: 1rem;
+                overflow: hidden;
+                margin: 1rem 0rem;
+                width: 94%;
+    
+                input {  
+                    display: none;
+                }
+    
+                label {
+                    width: 100%;
+                    text-align: center;
+                    padding: 0.75rem 0rem;
+                    cursor: pointer;
+                }
+    
+                #no {
+                    &:hover+#noLabel {
+    
+                        background-color: var(--grey-02);
+                        font-weight: 800;
+                    }
+    
+                    &:checked+#noLabel {
+                        background-color: var(--grey-01);
+                        font-weight: 800;
+                        color: var(--white-01);
+                    }
+                }
+    
+                #yes {
+                    &:hover+#yesLabel {
+    
+                        background-color: var(--grey-02);
+                        font-weight: 800;
+                    }
+    
+                    &:checked+#yesLabel {
+                        background-color: var(--red-color);
+                        font-weight: 800;
+                        color: var(--white-01);
+                    }
+                }
+
+            }
+
             .forgotPasswordLink {
                 align-self: flex-end;
                 color: var(--grey-01);
@@ -117,11 +179,17 @@ body {
                 margin-bottom: 1rem;
                 transition: all 0.25s ease-in-out;
 
-                &:focus &:hover {
+                &:focus, &:hover {
                     background-color: var(--dark-green);
                     color: var(--light-green);
                 }
-
+                
+                &.deleteBtn {
+                    &:focus, &:hover {
+                        background-color: var(--red-color);
+                        color: var(--white-01);
+                    }                    
+                }
             }
 
             .textContainer {

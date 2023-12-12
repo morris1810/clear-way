@@ -292,7 +292,7 @@ header .rightContainer .navBar .goToAppBtn:hover {
 .newPostPopUp .newPostForm .row select {
   width: 45%;
 }
-.newPostPopUp .newPostForm .radioConatiner {
+.newPostPopUp .newPostForm .radioContainer {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -303,36 +303,36 @@ header .rightContainer .navBar .goToAppBtn:hover {
   overflow: hidden;
   margin: 1rem 0rem;
 }
-.newPostPopUp .newPostForm .radioConatiner input {
+.newPostPopUp .newPostForm .radioContainer input {
   display: none;
 }
-.newPostPopUp .newPostForm .radioConatiner label {
+.newPostPopUp .newPostForm .radioContainer label {
   width: 100%;
   text-align: center;
   padding: 0.75rem 0rem;
   cursor: pointer;
 }
-.newPostPopUp .newPostForm .radioConatiner #trafficJamLow:hover + #trafficJamLowLabel {
+.newPostPopUp .newPostForm .radioContainer #trafficJamLow:hover + #trafficJamLowLabel {
   background-color: var(--grey-02);
   font-weight: 800;
 }
-.newPostPopUp .newPostForm .radioConatiner #trafficJamLow:checked + #trafficJamLowLabel {
+.newPostPopUp .newPostForm .radioContainer #trafficJamLow:checked + #trafficJamLowLabel {
   background-color: var(--green-color);
   font-weight: 800;
 }
-.newPostPopUp .newPostForm .radioConatiner #trafficJamMedium:hover + #trafficJamMediumLabel {
+.newPostPopUp .newPostForm .radioContainer #trafficJamMedium:hover + #trafficJamMediumLabel {
   background-color: var(--grey-02);
   font-weight: 800;
 }
-.newPostPopUp .newPostForm .radioConatiner #trafficJamMedium:checked + #trafficJamMediumLabel {
+.newPostPopUp .newPostForm .radioContainer #trafficJamMedium:checked + #trafficJamMediumLabel {
   background-color: var(--yellow-color);
   font-weight: 800;
 }
-.newPostPopUp .newPostForm .radioConatiner #trafficJamHigh:hover + #trafficJamHighLabel {
+.newPostPopUp .newPostForm .radioContainer #trafficJamHigh:hover + #trafficJamHighLabel {
   background-color: var(--grey-02);
   font-weight: 800;
 }
-.newPostPopUp .newPostForm .radioConatiner #trafficJamHigh:checked + #trafficJamHighLabel {
+.newPostPopUp .newPostForm .radioContainer #trafficJamHigh:checked + #trafficJamHighLabel {
   background-color: var(--red-color);
   font-weight: 800;
 }
