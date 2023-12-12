@@ -135,6 +135,13 @@ body {
                     color: var(--url-color);
                 }
             }
+            .cancelBtn {
+                color: #757575;
+                &:hover {
+                    color: var(--brand-color);
+                    font-weight: 700;
+                }
+            }
         }
     }
 

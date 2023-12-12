@@ -134,8 +134,6 @@ mysqli_close($dbc);
             <br>
             <button class="submitBtn" type="submit" name="submit">UPDATE PROFILE</button>
         </form>
-
-
     </main>
     <div class="displayMessageContainer">
         <?php

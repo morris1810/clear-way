@@ -60,7 +60,7 @@ body {
                 z-index: 10;
                 @include main.absCenter();
                 top: calc(120% + 4px);
-                // display: none;
+
                 height: 0px;
                 background-color: var(--bg-color);
 
@@ -84,8 +84,8 @@ body {
 
                     @include main.dFlex();
                     height: 1.5rem;
-                    padding: 1rem;
                     border-width: 2px;
+                    padding: 1rem;
 
                     &:hover {
                         background-color: var(--text-color);
@@ -243,7 +243,6 @@ body {
 
             .pageContainer {
                 @include main.dFlex($fd: row);
-
                 a {
                     padding: 0 1rem;
                     color: var(--text-color);

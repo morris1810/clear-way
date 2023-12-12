@@ -59,13 +59,13 @@ $user_table = '';
 $user_table .=
     '<table class="dataTable">
 		<tr class="dataHeaderRow">
-			<th class="dataHeader">User Email</th>
+			<th class="dataHeader">Email</th>
 			<th class="dataHeader">Street</th>
 			<th class="dataHeader">City</th>
 			<th class="dataHeader">State</th>
 			<th class="dataHeader">Postcode</th>
 			<th class="dataHeader">Country</th>
-			<th class="dataHeader">Traffic Jam</th>
+			<th class="dataHeader">Traffic</th>
 			<th class="dataHeader">Date</th>
 		</tr>';
 
@@ -97,7 +97,7 @@ if ($pages > 0) {
 
     // Show previous button when next page is displayed
     if ($current_page != 1) {
-        $pagination .=  '<a href="?s=' . ($start - $display) . '&p=' . $pages . '&sort=' . $sort . '">Previous</a> ';
+        $pagination .=  '<a href="?s=' . ($start - $display) . '&p=' . $pages . '&sort=' . $sort . '"><-</a> ';
     }
 
     for ($i = 1; $i <= $pages; $i++) {
@@ -110,7 +110,7 @@ if ($pages > 0) {
 
     // if its not the end of the page, then display next button:
     if ($current_page != $pages) {
-        $pagination .=  '<a href="?s=' . ($start + $display) . '&p=' . $pages . '&sort=' . $sort . '">Next</a>';
+        $pagination .=  '<a href="?s=' . ($start + $display) . '&p=' . $pages . '&sort=' . $sort . '">-></a>';
     }
 
     $pagination .= '</div>';
@@ -125,7 +125,7 @@ if ($pages > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin: User Table</title>
+    <title>Admin: Post Table</title>
     <link rel="icon" type="image/x-icon" href="../assets/imgs/logo.png">
 
     <!-- CSS Styling -->

@@ -304,8 +304,8 @@ body .flexContainer .dropDownContainer:active .optionContainer, body .flexContai
   justify-content: center;
   align-items: center;
   height: 1.5rem;
-  padding: 1rem;
   border-width: 2px;
+  padding: 1rem;
 }
 body .flexContainer .dropDownContainer:active .optionContainer:hover, body .flexContainer .dropDownContainer:focus .optionContainer:hover, body .flexContainer .dropDownContainer:hover .optionContainer:hover {
   background-color: var(--text-color);

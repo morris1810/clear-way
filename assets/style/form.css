@@ -350,6 +350,13 @@ body main form .textContainer a {
   padding: 0rem 0.5rem;
   color: var(--url-color);
 }
+body main form .cancelBtn {
+  color: #757575;
+}
+body main form .cancelBtn:hover {
+  color: var(--brand-color);
+  font-weight: 700;
+}
 body .displayMessageContainer {
   display: flex;
   flex-direction: column;
