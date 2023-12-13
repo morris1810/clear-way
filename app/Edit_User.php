@@ -101,7 +101,7 @@ mysqli_close($dbc);
         <button class="switchDisplayModeBtn"></button>
     </header>
     <main>
-        <a href="../edit_user.php" target="_self" class="imgContainer">
+        <a href="profile.php" target="_self" class="imgContainer">
             <img src="../assets/imgs/logo.png" alt="logo icon">
         </a>
 

@@ -128,6 +128,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$postcode = mysqli_real_escape_string($dbc, trim($_POST['postcode']));
 	}
 
+	if (!is_numeric($_POST['postcode'])) {
+		$errors[] = 'Only numeric value for postcode.';
+	} else {
+		$postcode = mysqli_real_escape_string($dbc, trim($_POST['postcode']));
+	}
+
 	// Check for a country:
 	if (empty($_POST['country'])) {
 		$errors[] = 'You forgot to enter your country.';
@@ -310,8 +316,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// Location
 		const malaysia = {
 			position: {
-				lat: 3.952412936963896,
-				lng: 109.43101984204212
+				lat: 4.0,
+				lng: 108.5
 			},
 			label: "Malaysia"
 		}
@@ -450,6 +456,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			map = new Map(document.getElementById("map"), {
 				center: malaysia.position,
 				zoom: 5.2,
+				mapTypeControl: false
+
 			});
 
 

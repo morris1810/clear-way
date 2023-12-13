@@ -1,5 +1,7 @@
 <?php
 
+$state_option = "";
+
 $state_list = array(
     "Johor",
     "Kedah",
