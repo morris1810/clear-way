@@ -47,7 +47,7 @@
   --grey-01: #9d9d9d;
   --url-color: rgb(118, 115, 255);
   --red-color: #a42222;
-  --yellow-color: #a4a022;
+  --yellow-color: #cca300;
   --green-color: #26a422;
 }
 
@@ -200,7 +200,8 @@ header .rightContainer .navBar .goToAppBtn:hover {
   color: var(--error-color);
   font-size: 1.5rem;
   text-align: center;
-  line-height: 5rem;
+  margin: 1rem 0rem;
+  line-height: 2rem;
 }
 
 .darkMode .switchDisplayModeBtn {
@@ -364,6 +365,18 @@ section {
 .aboutUsSection .textContainer p {
   font-size: 1.5rem;
   text-align: justify;
+  padding: 2rem 0rem;
+  margin: 1px;
+}
+.aboutUsSection .textContainer p:nth-child(2) {
+  border-bottom: 2px dashed var(--dark-green);
+}
+.aboutUsSection .textContainer p:nth-child(3) {
+  border-top: 2px dashed var(--dark-green);
+  border-bottom: 2px dashed var(--dark-green);
+}
+.aboutUsSection .textContainer p:nth-child(4) {
+  border-top: 2px dashed var(--dark-green);
 }
 
 .featuresSection {

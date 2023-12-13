@@ -30,10 +30,9 @@
                 <p>Already have an account? </p>
                 <a href="login.php"> Login</a>
             </div>
-        </form>
-    <script src="../assets/script/displayMode.js"></script>
-
+        </form>    
     </main>
+    <script src="../assets/script/displayMode.js"></script>
 </body>
 
 </html>

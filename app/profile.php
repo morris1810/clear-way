@@ -27,6 +27,27 @@ foreach ($state_list as $state) {
 
 session_start();
 
+// Session timeout duration in seconds
+$timeout_duration = 1800;
+
+// Check if the last activity timestamp is set
+if (isset($_SESSION['last_activity'])) {
+    // Calculate the session's age
+    $session_age = time() - $_SESSION['last_activity'];
+    
+    // Check if the session has expired
+    if ($session_age > $timeout_duration) {
+        unset($_SESSION['user_id']);
+        unset($_SESSION['email']);
+        // Destroy the session and redirect to login page or a timeout page
+        session_unset();
+        session_destroy();
+        header('Location: login.php?timeout=1');
+        exit();
+    }
+}
+
+
 // Check if the user is trying to log out.
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $_SESSION = array(); // Clear the session array.

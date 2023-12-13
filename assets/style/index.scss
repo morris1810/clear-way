@@ -156,9 +156,21 @@ section {
 
         p {
             font-size: 1.5rem;
-
             text-align: justify;
+            padding: 2rem 0rem;
+            margin: 1px;
+            &:nth-child(2) {
+                border-bottom: 2px dashed var(--dark-green);
+            }
+            &:nth-child(3) {
+                border-top: 2px dashed var(--dark-green);
+                border-bottom: 2px dashed var(--dark-green);
+            }
+            &:nth-child(4) {
+                border-top: 2px dashed var(--dark-green);
+            }
         }
+
     }
 }
 

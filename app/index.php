@@ -78,6 +78,28 @@ session_start();
 $post_data_pop_up_css = "display: none;";
 if (isset($_GET['action']) && $_GET['action'] == 'post_data') {
 
+
+	// Session timeout duration in seconds
+	$timeout_duration = 1800;
+
+	// Check if the last activity timestamp is set
+	if (isset($_SESSION['last_activity'])) {
+		// Calculate the session's age
+		$session_age = time() - $_SESSION['last_activity'];
+
+		// Check if the session has expired
+		if ($session_age > $timeout_duration) {
+			unset($_SESSION['user_id']);
+			unset($_SESSION['email']);
+			// Destroy the session and redirect to login page or a timeout page
+			session_unset();
+			session_destroy();
+			header('Location: login.php?timeout=1');
+			exit();
+		}
+	}
+
+
 	// Check if the user is logged in by looking at session data.
 	if (!isset($_SESSION['user_id'])) {
 		header('Location: login.php');
@@ -256,7 +278,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					<option disabled selected value="">State*</option>
 					<?php
 					if (isset($_POST['state'])) {
-						echo '<option value="'.$_POST['state'].'" selected>'.$_POST['state'].'</option>';
+						echo '<option value="' . $_POST['state'] . '" selected>' . $_POST['state'] . '</option>';
 					}
 
 					echo $state_option;

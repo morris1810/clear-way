@@ -264,7 +264,7 @@ body header .rightContainer .navBar .profileBtn {
   box-shadow: 0 0 0.1rem var(--shadow-color);
 }
 body header .rightContainer .navBar .profileBtn img {
-  height: 90%;
+  height: 80%;
 }
 body main {
   display: flex;

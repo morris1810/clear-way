@@ -59,7 +59,7 @@ if (isset($_SESSION['password_updated'])) {
     unset($_SESSION['password_updated']);
 }
 ?>
-<form action="Forgot_Password.php" method="post">
+<form action="reset_password.php" method="post">
     <p>Email Address: <input type="email" name="email" required></p>
     <p>New Password: <input type="password" name="new_password" required></p>
     <p>Confirm New Password: <input type="password" name="confirm_password" required></p>

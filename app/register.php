@@ -1,6 +1,7 @@
 <?php
-session_start();
-$page_title = 'Register';
+
+require("send_email.php");
+
 $error_message = '';
 // Check for form submission:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -35,6 +36,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors[] = 'You forgot to enter your new password.';
     }
     if (empty($errors)) {
+
+        $verify_purpose = "register";   
+
+        $veruft_url_link = DOMAIN."/app/verification.php?purpose=". $verify_purpose . "&email=" . $email . "&password=" . $password;
+        $email_title = "Clear Way: Verification";
+        $email_body = '
+        <h3>To verify the email for registration, please click the link below</h3>
+        <a href"' . $veruft_url_link . '">Verify</a>';
+
+        
 
         // Register the user in the database...
 
