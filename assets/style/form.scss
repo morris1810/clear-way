@@ -13,7 +13,7 @@ body {
         @include main.dFlex();
         left: auto;
         right: 0;
-        width: 3.5rem;
+        width: 3.5rem; 
         height: 3.5rem;
         border: 2px var(--dark-green) solid;
         backdrop-filter: blur(5px);

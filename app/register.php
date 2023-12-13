@@ -46,9 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p>'. $veruft_url_link .'</p>';
 
         if(send_email_verification($email, $email_title, $email_body)) {
-            $error_message .= "<p>The verification was send to your mailbox, <br>please follow the instruction to get verified.";
+            $error_message .= "<p class='normalText'>The verification was send to your mailbox, <br>please follow the instruction to get verified.";
         } else {
-            $error_message .= "<p>Verification email sent FAILED, please contact admin(syehrran@gmail.com)<br> to register an account. </p>";
+            $error_message .= "<p class='normalText'>Verification email sent FAILED, please contact admin(syehrran@gmail.com)<br> to register an account. </p>";
         }
 
 

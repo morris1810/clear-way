@@ -179,10 +179,10 @@ body {
 
             .topContainer {
                 width: 100%;
-
+                overflow-x: auto;
                 h3 {
                     font-size: 2rem;
-                }
+                } 
 
                 table {
                     width: 100%;

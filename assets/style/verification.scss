@@ -4,7 +4,7 @@
 html {
     overflow-x: hidden;
 }
-
+ 
 body {
     @include main.dFlex();
     min-height: 100vh;
@@ -12,10 +12,42 @@ body {
     width: 100%;
     color: var(--text-color);
     background-color: var(--bg-color);
+    
+    .bgLogoImg {
+        @include main.absCenter();
+        opacity: 0.1;
+        max-width: 90vw; 
+        width: 35rem;
+        z-index: -1;
+
+    }
+
     main {
         @include main.dFlex();
         .displayMsgContainer {
-            font-size: 1.5rem;
+            p{
+                font-size: 2rem;
+                font-weight: 800;
+            }
+        }
+    }
+    .loginBtn {
+        font-size: 1.5rem;
+        
+  
+        border: 2px solid var(--dark-green);
+        color: var(--dark-green);
+        background-color: var(--light-green);
+        transition: 0.25s ease-in-out;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        text-decoration: none;
+        line-height: 4;
+        cursor: pointer; 
+        &:hover {
+            color: var(--light-green);
+            background-color: var(--dark-green);
+
         }
     }
 } 

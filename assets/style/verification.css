@@ -96,6 +96,7 @@ header .leftContainer .logo {
   height: 90%;
 }
 header .leftContainer .companyName {
+  color: var(--text-color);
   padding: 0rem 1rem;
   color: var(--brand-color-secondary);
   text-shadow: 0 0 0.5rem var(--black-01);
@@ -196,6 +197,22 @@ header .rightContainer .navBar .goToAppBtn:hover {
   width: 42.5%;
 }
 
+.normalText {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem 0rem;
+  line-height: 2rem;
+}
+
+.errorText {
+  color: var(--error-color);
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem 0rem;
+  line-height: 2rem;
+}
+
 .errorText {
   color: var(--error-color);
   font-size: 1.5rem;
@@ -233,12 +250,39 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
 }
+body .bgLogoImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+  max-width: 90vw;
+  width: 35rem;
+  z-index: -1;
+}
 body main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-body main .displayMsgContainer {
+body main .displayMsgContainer p {
+  font-size: 2rem;
+  font-weight: 800;
+}
+body .loginBtn {
   font-size: 1.5rem;
+  border: 2px solid var(--dark-green);
+  color: var(--dark-green);
+  background-color: var(--light-green);
+  transition: 0.25s ease-in-out;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  line-height: 4;
+  cursor: pointer;
+}
+body .loginBtn:hover {
+  color: var(--light-green);
+  background-color: var(--dark-green);
 }/*# sourceMappingURL=verification.css.map */

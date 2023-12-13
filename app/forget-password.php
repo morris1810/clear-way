@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
 
         if(send_email_verification($email, $email_title, $email_body)) {
-            $error_message .= "<p>The verification was send to your mailbox, <br>please follow the instruction to get reset password.";
+            $error_message .= "<p class='normalText'>The verification was send to your mailbox, <br>please follow the instruction to get reset password.";
         } else {
-            $error_message .= "<p>Verification email sent FAILED, please contact admin(syehrran@gmail.com)<br> to reset your account. </p>";
+            $error_message .= "<p class='normalText'>Verification email sent FAILED, please contact admin(syehrran@gmail.com)<br> to reset your account. </p>";
         }
 
 

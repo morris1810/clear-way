@@ -1,5 +1,7 @@
 <?php
-DEFINE ('DOMAIN','http://localhost/WEB2202/ClearWay'); 
+
+
+DEFINE ('DOMAIN', 'http://' . $_SERVER['SERVER_NAME'] . '/WEB2202/ClearWay'); 
 DEFINE ('VERIFICATION_KEY','jhergbljkeqfbvljkaeflkjaeljkbvfliueghewo87ert'); 
 
 // Set the database access information as constants:

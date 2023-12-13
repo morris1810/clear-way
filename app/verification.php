@@ -13,16 +13,33 @@ if (isset($_GET['purpose']) && isset($_GET['key'])) {
             $email = $_GET['email'];
             $password = $_GET['password'];
 
-            $hashed_password = sha1($password);
 
-            $query = "INSERT INTO user (email, password) VALUES ('$email', '$hashed_password')";
 
-            $result = @mysqli_query($dbc, $query);
-            if ($result) {
-                $display_msg .= "Account register SUCCESSFUL. <br><a href='login.php'>Login now</a>";
+
+            $query_user = "SELECT * FROM user WHERE email = '" . $email . "'";
+            $query_result = mysqli_query($dbc, $query_user);
+
+            if ($query_result && mysqli_num_rows($query_result) == 1) {
+                //If user already exist.
+                $display_msg .= "Account has been registered. <br><a class='loginBtn' href='login.php'>Login now</a>";
             } else {
-                $display_msg .= "Accounnt register FAILED. <br> please contact admin(syehrran@gmail.com) to register an account.";
+
+                $hashed_password = sha1($password);
+
+                $query = "INSERT INTO user (email, password) VALUES ('$email', '$hashed_password')";
+
+                $result = @mysqli_query($dbc, $query);
+                if ($result) {
+                    $display_msg .= "Account register SUCCESSFUL. <br><a class='loginBtn' href='login.php'>Login now</a>";
+                } else {
+                    $display_msg .= "Accounnt register FAILED. <br> please contact admin(syehrran@gmail.com) to register an account.";
+                }
             }
+
+
+
+
+
 
             // Close the database connection if it's still open.
             if (isset($dbc) && is_resource($dbc)) {
@@ -42,12 +59,12 @@ if (isset($_GET['purpose']) && isset($_GET['key'])) {
             $password = $_GET['password'];
 
             $hashed_password = sha1($password);
-            $query = "UPDATE user SET password='$hasedpassword' WHERE email='$email' LIMIT 1";
+            $query = "UPDATE user SET password='$hashed_password' WHERE email='$email' LIMIT 1";
 
             $result = @mysqli_query($dbc, $query);
             if ($result) {
                 // Redirect the user to the profile page:
-                $display_msg .= "Reset password SUCCESSFUL.";
+                $display_msg .= "Reset password SUCCESSFUL. <br><a class='loginBtn' href='login.php'>Login now</a>";
             } else {
                 $display_msg .= "Reset password FAILED. <br> please contact admin(syehrran@gmail.com) to reset your password.";
             }
@@ -85,6 +102,7 @@ if (isset($_GET['purpose']) && isset($_GET['key'])) {
 </head>
 
 <body>
+    <img class="bgLogoImg" src="../assets/imgs/logo.png" alt="">
     <!-- ================================
      Navigation Bar 
     ================================= -->
@@ -101,7 +119,7 @@ if (isset($_GET['purpose']) && isset($_GET['key'])) {
     </header>
     <main>
         <div class="displayMsgContainer">
-            <?php echo "<p>Result: " . $display_msg . "</p>"; ?></p>
+            <?php echo "<p class='normalText'>Result: " . $display_msg . "</p>"; ?></p>
         </div>
     </main>
     <script src="../assets/script/displayMode.js"></script>
