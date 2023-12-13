@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ERROR | E_PARSE); // Hiding the warning message
 
 DEFINE ('DOMAIN', 'http://' . $_SERVER['SERVER_NAME'] . '/WEB2202/ClearWay'); 
 DEFINE ('VERIFICATION_KEY','jhergbljkeqfbvljkaeflkjaeljkbvfliueghewo87ert'); 
