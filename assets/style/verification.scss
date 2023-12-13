@@ -1,0 +1,21 @@
+@use "main.scss";
+
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    @include main.dFlex();
+    min-height: 100vh;
+    overflow-x: hidden; 
+    width: 100%;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    main {
+        @include main.dFlex();
+        .displayMsgContainer {
+            font-size: 1.5rem;
+        }
+    }
+} 

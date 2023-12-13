@@ -218,201 +218,27 @@ header .rightContainer .navBar .goToAppBtn:hover {
   background-color: rgba(0, 99, 109, 0.3294117647);
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 100%;
   overflow-x: hidden;
+  width: 100%;
+  color: var(--text-color);
   background-color: var(--bg-color);
-  transition: all 0.25s ease-in-out;
-  box-shadow: inset 0 0 50vw 50vw var(--light-green);
-}
-body header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  left: auto;
-  right: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  border: 2px var(--dark-green) solid;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  padding: 0.5rem;
-}
-body header .switchDisplayModeBtn {
-  z-index: 101;
-  height: 60%;
-  width: 60%;
-  border: none;
 }
 body main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  max-width: 400px;
-  border: solid 5px var(--dark-green);
-  border-radius: 2rem;
-  padding: 5rem 0rem;
-  box-shadow: 0 0 0.5rem var(--shadow-color);
-  background-color: var(--light-green);
-  color: var(--dark-green);
-  margin: 1rem 0rem;
 }
-body main .imgContainer {
-  padding: 2rem;
-}
-body main .imgContainer img {
-  max-width: 200px;
-}
-body main h3 {
-  font-size: 1.2rem;
-  width: 90%;
-}
-body main h5 {
+body main .displayMsgContainer {
   font-size: 1.5rem;
-  width: 90%;
-}
-body main p, body main a {
-  font-size: 1.2rem;
-  text-align: center;
-  width: 95%;
-  color: var(--text-color);
-}
-body main form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  width: 90%;
-}
-body main form .inputContainer {
-  position: relative;
-  width: 95%;
-  margin: 1rem 0rem;
-}
-body main form .inputContainer label {
-  position: absolute;
-  font-weight: 700;
-  top: 50%;
-  left: 1rem;
-  background-color: var(--light-green);
-  padding: 0rem 0.5rem;
-  transform: translateY(-200%);
-  font-size: 1rem;
-}
-body main form .inputContainer input, body main form .inputContainer select {
-  width: 90%;
-  font-size: 1.5rem;
-  outline: none;
-  border: 2px solid var(--dark-green);
-  color: var(--dark-green);
-  background: transparent;
-  border-radius: 12px;
-  padding: 1rem 5%;
-}
-body main form .inputContainer select {
-  width: 100%;
-  -moz-appearance: none;
-       appearance: none;
-  -webkit-appearance: none;
-}
-body main form .radioContainer {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: var(--text-color) 2px solid;
-  border-radius: 1rem;
-  overflow: hidden;
-  margin: 1rem 0rem;
-  width: 94%;
-}
-body main form .radioContainer input {
-  display: none;
-}
-body main form .radioContainer label {
-  width: 100%;
-  text-align: center;
-  padding: 0.75rem 0rem;
-  cursor: pointer;
-}
-body main form .radioContainer #no:hover + #noLabel {
-  background-color: var(--grey-02);
-  font-weight: 800;
-}
-body main form .radioContainer #no:checked + #noLabel {
-  background-color: var(--grey-01);
-  font-weight: 800;
-  color: var(--white-01);
-}
-body main form .radioContainer #yes:hover + #yesLabel {
-  background-color: var(--grey-02);
-  font-weight: 800;
-}
-body main form .radioContainer #yes:checked + #yesLabel {
-  background-color: var(--red-color);
-  font-weight: 800;
-  color: var(--white-01);
-}
-body main form .forgotPasswordLink {
-  align-self: flex-end;
-  color: var(--grey-01);
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-body main form .submitBtn {
-  width: 95%;
-  font-size: 1.5rem;
-  border: 2px solid var(--dark-green);
-  border-radius: 12px;
-  padding: 1rem 5%;
-  color: var(--dark-green);
-  background-color: transparent;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 1rem;
-  transition: all 0.25s ease-in-out;
-}
-body main form .submitBtn:focus, body main form .submitBtn:hover {
-  background-color: var(--dark-green);
-  color: var(--light-green);
-}
-body main form .submitBtn.deleteBtn:focus, body main form .submitBtn.deleteBtn:hover {
-  background-color: var(--red-color);
-  color: var(--white-01);
-}
-body main form .textContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  text-align: center;
-  font-size: 1.2rem;
-}
-body main form .textContainer a {
-  padding: 0rem 0.5rem;
-  color: var(--url-color);
-}
-body main form .cancelBtn {
-  color: #757575;
-}
-body main form .cancelBtn:hover {
-  color: var(--brand-color);
-  font-weight: 700;
-}
-body .displayMessageContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}/*# sourceMappingURL=form.css.map */
+}/*# sourceMappingURL=verification.css.map */

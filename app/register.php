@@ -39,43 +39,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $verify_purpose = "register";   
 
-        $veruft_url_link = DOMAIN."/app/verification.php?purpose=". $verify_purpose . "&email=" . $email . "&password=" . $password;
-        $email_title = "Clear Way: Verification";
+        $veruft_url_link = DOMAIN."/app/verification.php?key=" . VERIFICATION_KEY . "&purpose=". $verify_purpose . "&email=" . $email . "&password=" . $password;
+        $email_title = "Clear Way: Register Verification";
         $email_body = '
-        <h3>To verify the email for registration, please click the link below</h3>
-        <a href"' . $veruft_url_link . '">Verify</a>';
+        <h3>To verify the email for <b>REGISTRATION</b>registration, please click the link below:</h3>
+        <p>'. $veruft_url_link .'</p>';
 
-        
-
-        // Register the user in the database...
-
-
-        $hashed_password = sha1($password);
-
-        $query = "INSERT INTO user (email, password) VALUES ('$email', '$hashed_password')";
-
-        $result = @mysqli_query($dbc, $query);
-        if ($result) {
-
-            // Retrieve the user_id of the newly registered user
-            $user_id = mysqli_insert_id($dbc);
-
-            // Set the session data with user_id and email
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['email'] = $email;
-
-            // Redirect the user to the profile page:
-            header("Location: Profile.php");
-            exit();
+        if(send_email_verification($email, $email_title, $email_body)) {
+            $error_message .= "<p>The verification was send to your mailbox, <br>please follow the instruction to get verified.";
         } else {
-
-            // Public message:
-            echo '<h1>System Error</h1>
-            <p class="error">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
-
-            // Debugging message:
-            echo '<p>' . mysqli_error($dbc) . '<br /><br />Query: ' . $query . '</p>';
+            $error_message .= "<p>Verification email sent FAILED, please contact admin(syehrran@gmail.com)<br> to register an account. </p>";
         }
+
+
     } else {
         // Report the errors.
         if (!empty($errors)) {
@@ -94,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_close($dbc);
     }
 }
-?>
+?> 
 
 
 <!DOCTYPE html>
