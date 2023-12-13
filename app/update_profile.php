@@ -37,10 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $name = mysqli_real_escape_string($dbc, trim($_POST['name']));
     }
 
-    if (!is_numeric($_POST['phone'])) {
+
+    if (empty($_POST['phone'])) {
+        $errors[] = 'You forgot to enter your phone.';
+    } elseif (!is_numeric($_POST['phone'])) {
         $errors[] = 'Only numeric value for phone';
     }
-    if (!is_numeric($_POST['driving_experience'])) {
+
+    if (empty($_POST['driving_experience'])) {
+        $errors[] = 'You forgot to enter your Driving Experience.';
+    } elseif (!is_numeric($_POST['driving_experience'])) {
         $errors[] = 'Only numeric value for Driving Experience';
     }
 
