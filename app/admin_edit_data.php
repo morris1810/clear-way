@@ -20,34 +20,10 @@ if ((isset($_GET['id']) && is_numeric($_GET['id']))) { // From Admin_Page.php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errors = array();
 
-    if (empty($_POST['name'])) {
-        $errors[] = 'You forgot to enter the name.';
-    } else {
-        $name = mysqli_real_escape_string($dbc, trim($_POST['name']));
-    }
-
     if (empty($_POST['email'])) {
         $errors[] = 'You forgot to enter the email address.';
     } else {
         $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
-    }
-
-    if (empty($_POST['phone'])) {
-        $errors[] = 'You forgot to enter the phone number.';
-    } else {
-        $phone = mysqli_real_escape_string($dbc, trim($_POST['phone']));
-    }
-
-    if (empty($_POST['gender'])) {
-        $errors[] = 'You forgot to enter your gender.';
-    } else {
-        $gender = mysqli_real_escape_string($dbc, trim($_POST['gender']));
-    }
-
-    if (empty($_POST['driving_experience'])) {
-        $errors[] = 'You forgot to enter your driving experience.';
-    } else {
-        $driving_experience = mysqli_real_escape_string($dbc, trim($_POST['driving_experience']));
     }
 
     if (empty($_POST['role'])) {
@@ -55,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $role = mysqli_real_escape_string($dbc, trim($_POST['role']));
     }
-
-
 
     if (empty($errors)) {
         $query = "SELECT id FROM user WHERE email='$email' AND id != $id";
