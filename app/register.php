@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $veruft_url_link = DOMAIN."/app/verification.php?key=" . VERIFICATION_KEY . "&purpose=". $verify_purpose . "&email=" . $email . "&password=" . $password;
         $email_title = "Clear Way: Register Verification";
         $email_body = '
-        <h3>To verify the email for <b>REGISTRATION</b>registration, please click the link below:</h3>
+        <h3>To verify the email for registration, please click the link below:</h3>
         <p>'. $veruft_url_link .'</p>';
 
         if(send_email_verification($email, $email_title, $email_body)) {
