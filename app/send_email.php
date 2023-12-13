@@ -23,7 +23,7 @@ function send_email_verification($toEmail, $subject, $htmlBody) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         
-        $mail->setFrom('dummorris@gmail.com', 'Mailer');
+        $mail->setFrom('', 'Mailer');
         $mail->addAddress($toEmail);     //Add a recipient
         
         
