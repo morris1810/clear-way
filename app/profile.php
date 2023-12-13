@@ -307,7 +307,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="bottomContainer">
                 <p class="incompleteMessage"><?php echo $profile_incomplete_message; ?></p>
                 <div class="buttonContainer">
-                    <a href="edit_user.php">Edit Profile</a>
+                    <a href="update_profile.php">Edit Profile</a>
                     <a href="forget-password.php">Reset Password</a>
                     <a href="?action=logout" class="logoutBtn">Log out</a>
                 </div>

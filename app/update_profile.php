@@ -105,7 +105,7 @@ mysqli_close($dbc);
             <img src="../assets/imgs/logo.png" alt="logo icon">
         </a>
 
-        <form action="edit_user.php" method="post">
+        <form action="update_profile.php" method="post">
             <div class="inputContainer">
                 <label for="name">Name:</label>
                 <input placeholder="Your Name" type="text" name="name" id="name" value="<?php echo htmlspecialchars($name); ?>">
