@@ -19,23 +19,59 @@ if ((isset($_GET['id']) && is_numeric($_GET['id']))) { // From Admin_Page.php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errors = array();
-
+    
+    //Validation for email
     if (empty($_POST['email'])) {
         $errors[] = 'You forgot to enter the email address.';
     } else {
         $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
     }
-
+    
+    //Validation for role
     if (empty($_POST['role'])) {
         $errors[] = 'You forgot to enter the role';
     } else {
         $role = mysqli_real_escape_string($dbc, trim($_POST['role']));
     }
-
+    
+    //Validation for name
+    if (empty($_POST['name'])) {
+        $name = "";
+    } else {
+        $name = $_POST['name'];
+    }
+    
+    //Validation for  phone
+    if (empty($_POST['phone'])) {
+        $phone = "";
+    } 
+    elseif (!is_numeric($_POST['phone'])) {
+        $errors[] = 'Only numeric value for phone';
+    }else {
+        $phone = $_POST['phone'];
+    }
+    
+    // Validation for gender
+    if (empty($_POST['gender'])) {
+        $gender = "";
+    } else {
+        $gender = $_POST['gender'];
+    }
+    
+    //Validation for driving experience
+    if (empty($_POST['driving_experience'])) {
+        $driving_experience = "";
+    } elseif (!is_numeric($_POST['driving_experience'])) {
+        $errors[] = 'Only numeric value for Driving Experience';
+    }else {
+        $driving_experience = $_POST['driving_experience'];
+    }
+    
+    
     if (empty($errors)) {
         $query = "SELECT id FROM user WHERE email='$email' AND id != $id";
         $result = mysqli_query($dbc, $query);
-
+        
         if (mysqli_num_rows($result) == 0) {
             $query = "UPDATE user SET name='$name', email='$email', phone='$phone', gender='$gender', driving_experience=$driving_experience, role='$role' WHERE id=$id LIMIT 1";
             $result = mysqli_query($dbc, $query);
