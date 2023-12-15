@@ -3,9 +3,8 @@
 Before you run need to do some settings and configuration:
 
 1. All the code should locate at the XAMPP folder: `/htdocs/WEB2202/ClearWay/`
-2. Create a new database in XAMPP called `clearway`, then insert the `clear_way.sql`
-3. 
-4. Set up the send email feature:
+2. Create a new database in XAMPP called `clearway`, then insert the `clearway.sql`
+3. Set up the send email feature:
 
    * Go to `/app/send_email.php` and replace some value:
      * `<REPLACE_YOUR_GMAIL_SMTP_EMAIL_HERE>` * 2
@@ -29,6 +28,8 @@ Before you run need to do some settings and configuration:
        require '<REPLACE_YOUR_PHPMailer_PATH_HERE>/PHPMailer/src/PHPMailer.php';
        require '<REPLACE_YOUR_PHPMailer_PATH_HERE>/PHPMailer/src/SMTP.php';
        ```
+
+To access the admin feature in ClearWay please login with email `admin@gmail.com` and password `12345678`.
 
 # Reference
 
