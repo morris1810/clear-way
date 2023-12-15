@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="confirmPassword">Confirm Password:</label>
                 <input required placeholder="example12345" type="password" class="passwordInput" name="pass2" id="confirmPassword">
             </div>
-            <a class="forgotPasswordLink" href="forget-password.php">Forgot password?</a>
+            <a class="forgotPasswordLink" href="forget_password.php">Forgot password?</a>
             <button class="submitBtn" type="submit" name="submit">REGISTER</button>
             <div class="textContainer">
                 <p>Dont have an account? </p>

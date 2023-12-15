@@ -4,8 +4,7 @@
 // Query Data
 //================================
 
-function get_status_by_state($state)
-{
+function get_status_by_state($state) {
 	require('mysqli_connect.php');
 
 	$query_status = "SELECT traffic_jam AS status FROM post_data WHERE state = '" . $state . "' ORDER BY date DESC LIMIT 1";
@@ -183,8 +182,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$email = isset($_SESSION['email']) ? mysqli_real_escape_string($dbc, $_SESSION['email']) : null;
 
 		// Create the query:
-		$query = "INSERT INTO post_data (user_email, street, city, state, postcode, country, traffic_jam, date)
-              VALUES ('$email', '$street', '$city', '$state', '$postcode', '$country', '$traffic_jam', '$date')";
+		$query = "INSERT INTO post_data (user_email, street, city, state, postcode, country, traffic_jam, )
+              VALUES ('$email', '$street', '$city', '$state', '$postcode', '$country', '$traffic_jam')";
 
 		$result = mysqli_query($dbc, $query);
 
@@ -299,7 +298,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<span class="row dateContainer">
 				<label>Date:</label>
 				<input class="readonly" name="date" type="text" readonly value="<?php echo date('Y-m-d H:i:s'); ?>">
-				<p> <?php echo date('d-M-Y H:i'); ?></p>
+				<p> <?php echo date('d-M-Y'); ?></p>
 			</span>
 			<button class="submitBtn" type="submit" name="submit">Post</button>
 		</form>

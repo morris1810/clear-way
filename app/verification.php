@@ -13,9 +13,6 @@ if (isset($_GET['purpose']) && isset($_GET['key'])) {
             $email = $_GET['email'];
             $password = $_GET['password'];
 
-
-
-
             $query_user = "SELECT * FROM user WHERE email = '" . $email . "'";
             $query_result = mysqli_query($dbc, $query_user);
 
@@ -35,11 +32,6 @@ if (isset($_GET['purpose']) && isset($_GET['key'])) {
                     $display_msg .= "Accounnt register FAILED. <br> please contact admin(syehrran@gmail.com) to register an account.";
                 }
             }
-
-
-
-
-
 
             // Close the database connection if it's still open.
             if (isset($dbc) && is_resource($dbc)) {

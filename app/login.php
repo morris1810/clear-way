@@ -99,13 +99,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="login.php" method="post">
             <div class="inputContainer">
                 <label for="email">Email:</label>
-                <input required placeholder="example@gmail.com" type="text" name="email" id="email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
+                <input placeholder="example@gmail.com" type="text" name="email" id="email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
             </div>
             <div class="inputContainer">
                 <label for="password">Password:</label>
-                <input required placeholder="example12345" type="password" class="passwordInput" name="password" id="password">
+                <input placeholder="example12345" type="password" class="passwordInput" name="password" id="password">
             </div>
-            <a class="forgotPasswordLink" href="forget-password.php">Forgot password?</a>
+            <a class="forgotPasswordLink" href="forget_password.php">Forgot password?</a>
             <button class="submitBtn" type="submit" name="submit">LOGIN</button>
             <div class="textContainer">
                 <p>Dont have an account? </p>

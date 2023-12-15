@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button class="switchDisplayModeBtn"></button>
     </header>
     <main>
-        <form method="post" action="forget-password.php">
+        <form method="post" action="forget_password.php">
             <h3>Please key in your email to reset password.</h3>
             <div class="inputContainer">
                 <label for="email">Email:</label>
