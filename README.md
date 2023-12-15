@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="250" src="assets/imgs/logo.png" alt="Clear Way"/>
+</p>
+
 # ClearWay
 
 Before you run need to do some settings and configuration:
