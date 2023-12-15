@@ -182,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$email = isset($_SESSION['email']) ? mysqli_real_escape_string($dbc, $_SESSION['email']) : null;
 
 		// Create the query:
-		$query = "INSERT INTO post_data (user_email, street, city, state, postcode, country, traffic_jam, )
+		$query = "INSERT INTO post_data (user_email, street, city, state, postcode, country, traffic_jam )
               VALUES ('$email', '$street', '$city', '$state', '$postcode', '$country', '$traffic_jam')";
 
 		$result = mysqli_query($dbc, $query);
