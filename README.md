@@ -14,7 +14,6 @@ ClearWay is a web platform designed to enhance traffic management and sustainabi
 * **✏️ Admin Dashboard**: For managing users and posts data effectively.
 * **💻 Responsive Design**: Ensures a great user experience across every devices.
 
-
 ## Technologies Used
 
 * **Frontend** : HTML, CSS, JavaScript
@@ -22,11 +21,9 @@ ClearWay is a web platform designed to enhance traffic management and sustainabi
 * **Email Verification** : PHPMailer for secure email verification processes.
 * **APIs** : Google Maps for displaying traffic statuses geographically.
 
-
 ## Demo
+
 <div align="center">
-  <img style="border-radius: 6px;" src="example/1.png" alt="Example Img 1"/>
-  <p align="center">Landing Page</p>
   <img style="border-radius: 6px;" src="example/2.png" alt="Example Img 2"/>
   <p align="center">Home Page</p>
   <img style="border-radius: 6px;" src="example/3.png" alt="Example Img 3"/>
@@ -36,7 +33,6 @@ ClearWay is a web platform designed to enhance traffic management and sustainabi
   <img style="border-radius: 6px;" src="example/5.png" alt="Example Img 5"/>
   <p align="center">Admin Portal</p>
 </div>
-
 
 ## Installation
 
