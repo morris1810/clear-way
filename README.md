@@ -25,15 +25,15 @@ ClearWay is a web platform designed to enhance traffic management and sustainabi
 
 ## Demo
 <div align="center">
-  <img src="example/1.png" alt="Example Img 1"/>
+  <img style="border-radius: 6px;" src="example/1.png" alt="Example Img 1"/>
   <p align="center">Landing Page</p>
-  <img src="example/2.png" alt="Example Img 2"/>
+  <img style="border-radius: 6px;" src="example/2.png" alt="Example Img 2"/>
   <p align="center">Home Page</p>
-  <img src="example/3.png" alt="Example Img 3"/>
+  <img style="border-radius: 6px;" src="example/3.png" alt="Example Img 3"/>
   <p align="center">Traffic Data Dialog</p>
-  <img src="example/4.png" alt="Example Img 4"/>
+  <img style="border-radius: 6px;" src="example/4.png" alt="Example Img 4"/>
   <p align="center">Profile Page</p>
-  <img src="example/5.png" alt="Example Img 5"/>
+  <img style="border-radius: 6px;" src="example/5.png" alt="Example Img 5"/>
   <p align="center">Admin Portal</p>
 </div>
 
